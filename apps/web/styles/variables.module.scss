@@ -1,0 +1,44 @@
+// VARIABLES
+// ---------
+
+// breakpoints
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+$bp-2xl: 1536px;
+
+// spacing
+$sp-1: 0.25rem;
+$sp-2: 0.5rem;
+$sp-3: 0.75rem;
+$sp-4: 1rem;
+$sp-5: 1.25rem;
+$sp-6: 1.5rem;
+$sp-7: 1.75rem;
+$sp-8: 2rem;
+
+// container sizes
+$cs-full: 100%;
+$cs-contained: 880px;
+$cs-header: 1280px;
+
+// font sizes
+$fs-body: 1rem;
+$fs-tagline: 1.25rem;
+$fs-h1: 6rem;
+$fs-h1-sm: 2.5rem;
+$fs-heading: 2rem;
+
+// custom button attributes
+$fs-btn: 0.875rem;
+$pd-btn: 11px 16px;
+$pd-btn-sq: 11px 11px;
+
+// colors
+$cl-black: #000;
+$cl-white: #fff;
+$cl-red: red;
+
+// transitions
+$t-ease: ease 200ms;

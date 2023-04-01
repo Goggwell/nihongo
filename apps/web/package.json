@@ -9,7 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "^13.1.1",
+    "@portabletext/react": "^2.0.2",
+    "@sanity/client": "^5.4.1",
+    "@sanity/image-url": "^1.0.2",
+    "clsx": "^1.2.1",
+    "next": "^13.2.4",
+    "next-sanity": "^4.1.6",
     "next-seo": "^5.15.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -22,6 +27,7 @@
     "@types/react": "^18.0.22",
     "@types/react-dom": "^18.0.7",
     "css-loader": "^6.7.3",
+    "dotenv-cli": "^7.1.0",
     "eslint": "7.32.0",
     "eslint-config-custom": "workspace:*",
     "sass-loader": "^13.2.2",
