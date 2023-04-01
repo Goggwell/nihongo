@@ -1,0 +1,11 @@
+.Button {
+  border-radius: 8px;
+  background-color: rgba($cl-white, 0.1);
+  color: $cl-white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $sp-2;
+  font-size: $fs-btn;
+  padding: $pd-btn;
+}

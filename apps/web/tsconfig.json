@@ -3,6 +3,7 @@
   "compilerOptions": {
     "paths": {
       "@/components/*": ["components/*"],
+      "@/icons/*": ["components/Icons/*"],
       "@/pages/*": ["pages/*"],
       "@/styles/*": ["styles/*"]
     }

@@ -77,6 +77,9 @@ importers:
       '@sanity/image-url':
         specifier: ^1.0.2
         version: 1.0.2
+      clsx:
+        specifier: ^1.2.1
+        version: 1.2.1
       next:
         specifier: ^13.2.4
         version: 13.2.4(@babel/core@7.0.0)(react-dom@18.2.0)(react@18.2.0)(sass@1.60.0)
@@ -4002,6 +4005,11 @@ packages:
       string-width: 4.2.3
       strip-ansi: 6.0.1
       wrap-ansi: 7.0.0
+
+  /clsx@1.2.1:
+    resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
+    engines: {node: '>=6'}
+    dev: false
 
   /codemirror@6.0.1(@lezer/common@1.0.2):
     resolution: {integrity: sha512-J8j+nZ+CdWmIeFIGXEFbFPtpiYacFMDR8GlHK3IyHQJMCaVRfGx9NT+Hxivv1ckLWPvNdZqndbr/7lVhrf/Svg==}
