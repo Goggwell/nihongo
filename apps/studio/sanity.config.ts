@@ -4,12 +4,13 @@ import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemas'
 
 export default defineConfig({
-  name: 'default',
-  title: 'nihongo',
+  name: 'NihonGO_Content_Studio',
+  title: 'NihonGO Content Studio',
 
-  projectId: process.env.SANITY_STUDIO_PROJECT_ID!,
+  projectId: 'bkahyhz9',
   dataset: 'production',
 
+  //@ts-ignore
   plugins: [deskTool(), visionTool()],
 
   schema: {
