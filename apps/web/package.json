@@ -12,16 +12,20 @@
     "next": "^13.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "sass": "^1.60.0",
     "ui": "workspace:*"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
-    "eslint-config-custom": "workspace:*",
-    "eslint": "7.32.0",
-    "tsconfig": "workspace:*",
     "@types/node": "^17.0.12",
     "@types/react": "^18.0.22",
     "@types/react-dom": "^18.0.7",
+    "css-loader": "^6.7.3",
+    "eslint": "7.32.0",
+    "eslint-config-custom": "workspace:*",
+    "sass-loader": "^13.2.2",
+    "style-loader": "^3.3.2",
+    "tsconfig": "workspace:*",
     "typescript": "^4.5.3"
   }
 }
