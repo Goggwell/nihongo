@@ -16,5 +16,6 @@ This monorepo uses [pnpm](https://pnpm.io) as a package manager. It was develope
 - [TypeScript](https://www.typescriptlang.org/) for static type checking
 - [ESLint](https://eslint.org/) for code linting
 - [Prettier](https://prettier.io) for code formatting
-- [Husky/Commitlint] for git hooks and pre-commit commands
-- [Turborepo] for setting up this monorepo
+- [Husky](https://typicode.github.io/husky/#/) for git hooks and pre-commit commands
+- [Commitlint](https://commitlint.js.org/#/) for strict commit conventions
+- [Turborepo](https://turbo.build/repo) for setting up this monorepo
