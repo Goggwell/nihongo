@@ -5,13 +5,23 @@ import styles from "./Button.module.scss";
 export interface IButton {
   children?: ReactNode | JSX.Element;
   className?: string;
+  isRound?: Boolean;
   size?: "sm" | "md" | "lg";
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
-const Button = ({ children, className, size = "md", onClick }: IButton) => {
+const Button = ({
+  children,
+  className,
+  isRound,
+  size = "md",
+  onClick,
+}: IButton) => {
   return (
-    <button className={clsx(styles.Button, className)} onClick={onClick}>
+    <button
+      className={clsx(styles.Button, isRound && styles["is-round"], className)}
+      onClick={onClick}
+    >
       {children}
     </button>
   );

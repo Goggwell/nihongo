@@ -1,0 +1,75 @@
+.Navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+  transition: opacity $t-ease;
+
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &__container {
+    width: 100%;
+    max-width: $cs-full;
+    display: flex;
+    justify-content: center;
+
+    @media screen and (min-width: $bp-sm) {
+      max-width: $cs-contained;
+    }
+
+    @media screen and (min-width: $bp-lg) {
+      max-width: $cs-header;
+    }
+  }
+
+  &__main {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $sp-6;
+    list-style: none;
+    font-size: $fs-body;
+  }
+
+  &__logo {
+    span {
+      font-size: $fs-logo;
+      font-weight: 500;
+      color: $cl-white;
+
+      b {
+        color: $cl-red;
+        font-weight: 700;
+      }
+    }
+  }
+
+  &__item {
+    p {
+      font-weight: 400;
+      color: $cl-white;
+      transition: color $t-ease;
+    }
+
+    &s {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: $sp-6;
+    }
+
+    &:hover {
+      p {
+        color: $cl-red;
+      }
+    }
+  }
+}

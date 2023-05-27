@@ -8,4 +8,8 @@
   gap: $sp-2;
   font-size: $fs-btn;
   padding: $pd-btn;
+
+  &.is-round {
+    border-radius: 50%;
+  }
 }
