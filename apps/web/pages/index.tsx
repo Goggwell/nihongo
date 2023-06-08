@@ -3,6 +3,8 @@ import { useState } from "react";
 import Link from "next/link";
 
 import Button from "@/components/Button";
+import Navbar from "@/components/Navbar";
+
 import TRArrow from "@/components/Icons/TRArrow";
 import VideoIcon from "@/components/Icons/VideoIcon";
 import CrossIcon from "@/components/Icons/CrossIcon";
@@ -15,12 +17,14 @@ export default function Home() {
 
   return (
     <div className={styles.Home}>
+      <Navbar hidden={!isHeadingVisible} />
       <header className={styles.Home__header}>
         <Button
           className={clsx(
             styles["Home__video-btn"],
             isHeadingVisible && styles["is-hidden"]
           )}
+          isRound={true}
           onClick={() => setIsHeadingVisible(true)}
         >
           <CrossIcon />
@@ -53,28 +57,32 @@ export default function Home() {
         <div className={styles.Home__container}>
           <div
             className={clsx(
-              styles.Home__heading,
+              styles.Home__title,
               !isHeadingVisible && styles["is-hidden"]
             )}
           >
-            <h1>
-              Nihon<b>GO!</b>
-            </h1>
-            <p>Experience Japan, one word at a time.</p>
-            <div className={styles.Home__actions}>
-              <Link href="/about">
-                <Button className={styles.Home__button}>
-                  <span>About us</span>
-                  <TRArrow />
+            <div className={styles["Home__title--text"]}>
+              <h1>
+                Experience <i>Japan</i>{" "}
+                <em>
+                  one <i>word</i> at a time
+                </em>
+              </h1>
+              <div className={styles["Home__title--actions"]}>
+                <Link href="/about">
+                  <Button className={styles.Home__button}>
+                    <span>About us</span>
+                    <TRArrow />
+                  </Button>
+                </Link>
+                <Button
+                  className={clsx(styles.Home__button, styles["video"])}
+                  onClick={() => setIsHeadingVisible(false)}
+                >
+                  <span>Watch video</span>
+                  <VideoIcon />
                 </Button>
-              </Link>
-              <Button
-                className={clsx(styles.Home__button, styles["video"])}
-                onClick={() => setIsHeadingVisible(false)}
-              >
-                <span>Watch video</span>
-                <VideoIcon />
-              </Button>
+              </div>
             </div>
           </div>
         </div>
