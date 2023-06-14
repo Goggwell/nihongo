@@ -19,9 +19,19 @@ const Navbar = ({ hidden = false }: INavbar) => {
             </li>
           </Link>
           <ul className={styles.Navbar__items}>
+            <Link href="/courses">
+              <li className={styles.Navbar__item}>
+                <p>Courses</p>
+              </li>
+            </Link>
             <Link href="/about">
               <li className={styles.Navbar__item}>
                 <p>About</p>
+              </li>
+            </Link>
+            <Link href="/blog">
+              <li className={styles.Navbar__item}>
+                <p>Blog</p>
               </li>
             </Link>
             <Link href="/404">

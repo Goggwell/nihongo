@@ -43,8 +43,9 @@
       position: absolute;
       top: 0;
       left: 0;
-      background-color: rgba($cl-black, 0.9);
+      backdrop-filter: brightness(0.1);
       transition: opacity $t-ease;
+      z-index: 0;
 
       &.is-hidden {
         opacity: 0;
@@ -100,6 +101,7 @@
   }
 
   &__container {
+    margin: 0 auto;
     width: 100%;
     max-width: $cs-full;
 
@@ -133,6 +135,7 @@
         font-size: clamp($fs-h1-sm, 0.9091rem + 7.9545vw, $fs-h1);
         font-weight: 600;
         text-align: center;
+        pointer-events: none;
 
         b {
           color: $cl-red;
@@ -167,5 +170,10 @@
       opacity: 0;
       pointer-events: none;
     }
+  }
+
+  &__section {
+    position: relative;
+    height: 100vh;
   }
 }
