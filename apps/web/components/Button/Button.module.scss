@@ -23,6 +23,14 @@
     }
   }
 
+  &.sm {
+    height: $hg-btn-sm;
+
+    &.is-round {
+      width: $hg-btn-sm;
+    }
+  }
+
   &.transparent {
     background-color: transparent;
     border: 1px solid rgba($cl-red, 0.5);

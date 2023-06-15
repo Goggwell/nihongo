@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 
 import { inter, basierSquare } from "@/fonts/fonts";
 
-import Link from "next/link";
 import Image from "next/image";
 
+import Announcement from "@/components/Announcement";
 import Button from "@/components/Button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -206,6 +206,7 @@ export default function Home() {
         </div>
       </section>
       <Footer />
+      <Announcement />
     </div>
   );
 }
