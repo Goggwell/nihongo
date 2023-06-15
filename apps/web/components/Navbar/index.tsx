@@ -41,7 +41,7 @@ const Navbar = ({ hidden = false, changed }: INavbar) => {
                 <p>Blog</p>
               </li>
             </Link>
-            <Link href="/404">
+            <Link href="/contact">
               <li className={styles.Navbar__item}>
                 <p>Contact</p>
               </li>

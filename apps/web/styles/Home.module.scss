@@ -237,14 +237,36 @@
 
       &.staff {
         #{ $list }__item {
+          position: relative;
           background: rgba($cl-white, 0.02);
           box-shadow: $bs-item-inset;
           padding: $sp-9;
+          padding-top: calc($sp-9 + $sp-4);
           border: 1px solid $cl-dark-2;
+          overflow: hidden;
+          cursor: pointer;
 
           b,
           span {
             color: $cl-white;
+          }
+
+          span.description {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: $fs-sm;
+            color: rgba($cl-white, 0.8);
+            background-color: $cl-black;
+            display: grid;
+            place-items: center;
+            padding: $sp-9;
+            opacity: 0;
+            line-height: $lh-item;
+            transition: $t-ease;
           }
 
           b {
@@ -262,6 +284,10 @@
           &:hover {
             box-shadow: none;
             background-color: rgba($cl-white, 0.1);
+
+            span.description {
+              opacity: 1;
+            }
           }
         }
       }

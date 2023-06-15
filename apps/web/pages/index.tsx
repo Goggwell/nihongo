@@ -31,6 +31,8 @@ export default function Home() {
     const onScroll = () => {
       setScrollPos(window.scrollY);
 
+      console.log(process.env.NEXT_PUBLIC_ACCESS_KEY);
+
       if (scrollPos >= 80) {
         setIsNavbarChanged(true);
       } else {
@@ -188,6 +190,15 @@ export default function Home() {
               </picture>
               <b className={styles.name}>Denielsen Paulus</b>
               <span className={styles.role}>Head of School</span>
+              <span className={styles.description}>
+                Setelah menempuh pembelajaran di Jepang selama 6 tahun, saya
+                merasa bahwa ada banyak miskonsepsi yang dikhawatirkan oleh
+                orang Indonesia yang ingin pergi belajar atau kerja ke Jepang
+                yang tidak benar. Oleh karena itu, saya mendirikan Nihon-Go!
+                untuk merubah pemikiran tersebut dimana kendala bahasa atau
+                apapun itu tidak menjadi halangan dan membantu kalian untuk
+                meraih mimpi kalian.
+              </span>
             </li>
             <li className={styles["Home__section--list__item"]}>
               <picture className={styles.image}>
@@ -201,6 +212,12 @@ export default function Home() {
               </picture>
               <b className={styles.name}>Motohisa Katayama</b>
               <span className={styles.role}>Teacher</span>
+              <span className={styles.description}>
+                Saya adalah seseorang yang memiliki pengalaman tinggal di
+                Indonesia dan Jepang. Saya ingin memberikan dukungan bagi mereka
+                yang memiliki cita-cita untuk tinggal di Jepang, baik untuk
+                studi, bekerja, atau tujuan lainnya.
+              </span>
             </li>
           </ul>
         </div>
