@@ -97,14 +97,14 @@
       padding-left: $sp-4;
       padding-right: $sp-4;
 
-      @media screen and (min-width: $bp-2xl) {
-        padding-left: 0;
-        padding-right: 0;
-      }
-
       @media screen and (min-width: $bp-sm-var) {
         padding-left: $sp-8;
         padding-right: $sp-8;
+      }
+
+      @media screen and (min-width: $bp-2xl) {
+        padding-left: 0;
+        padding-right: 0;
       }
     }
   }
