@@ -26,8 +26,43 @@ h3,
 h4,
 h5,
 h6,
-p {
+p,
+span,
+button {
   line-height: normal;
+}
+
+h1,
+h2 {
+  font-family: var(--font-basier);
+  font-weight: 600;
+}
+
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+button {
+  font-family: var(--font-inter);
+}
+
+h1 {
+  font-size: $fs-h1-md;
+
+  @media screen and (min-width: $bp-md) {
+    font-size: $fs-h1;
+  }
+}
+
+h2 {
+  font-size: $fs-h2-md;
+  line-height: $lh-h2;
+
+  @media screen and (min-width: $bp-md) {
+    font-size: $fs-h2;
+  }
 }
 
 button {

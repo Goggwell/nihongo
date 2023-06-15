@@ -4,11 +4,18 @@ import styles from "./Navbar.module.scss";
 
 export interface INavbar {
   hidden?: Boolean;
+  changed?: Boolean;
 }
 
-const Navbar = ({ hidden = false }: INavbar) => {
+const Navbar = ({ hidden = false, changed }: INavbar) => {
   return (
-    <nav className={clsx(styles.Navbar, hidden && styles["is-hidden"])}>
+    <nav
+      className={clsx(
+        styles.Navbar,
+        hidden && styles["is-hidden"],
+        changed && styles["is-changed"]
+      )}
+    >
       <div className={styles.Navbar__container}>
         <ul className={styles.Navbar__main}>
           <Link href="/">

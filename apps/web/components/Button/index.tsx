@@ -7,6 +7,7 @@ export interface IButton {
   className?: string;
   isRound?: Boolean;
   size?: "sm" | "md" | "lg";
+  type?: "filled" | "transparent";
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
@@ -15,11 +16,18 @@ const Button = ({
   className,
   isRound,
   size = "md",
+  type = "transparent",
   onClick,
 }: IButton) => {
   return (
     <button
-      className={clsx(styles.Button, isRound && styles["is-round"], className)}
+      className={clsx(
+        styles.Button,
+        isRound && styles["is-round"],
+        styles[size],
+        styles[type],
+        className
+      )}
       onClick={onClick}
     >
       {children}

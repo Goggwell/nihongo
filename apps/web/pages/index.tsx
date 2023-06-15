@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-import { Inter } from "next/font/google";
+import { inter, basierSquare } from "@/fonts/fonts";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -9,29 +9,50 @@ import Button from "@/components/Button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-import TRArrow from "@/components/Icons/TRArrow";
 import VideoIcon from "@/components/Icons/VideoIcon";
 import CrossIcon from "@/components/Icons/CrossIcon";
+import LanguageIcon from "@/components/Icons/LanguageIcon";
+import InternetIcon from "@/components/Icons/InternetIcon";
+import ChatIcon from "@/components/Icons/ChatIcon";
+import ConnectionIcon from "@/components/Icons/ConnectionIcon";
+import AcademicIcon from "@/components/Icons/AcademicIcon";
 
 import moto from "../public/moto.webp";
 
 import clsx from "clsx";
 import styles from "@/styles/Home.module.scss";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export default function Home() {
   const [isHeadingVisible, setIsHeadingVisible] = useState(true);
+  const [scrollPos, setScrollPos] = useState(0);
+  const [isNavbarChanged, setIsNavbarChanged] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setScrollPos(window.scrollY);
+
+      if (scrollPos >= 80) {
+        setIsNavbarChanged(true);
+      } else {
+        setIsNavbarChanged(false);
+      }
+    };
+
+    window.addEventListener("scroll", onScroll);
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [scrollPos]);
 
   return (
-    <div className={clsx(styles.Home, inter.className)}>
-      <Navbar hidden={!isHeadingVisible} />
+    <div className={clsx(styles.Home, inter.variable, basierSquare.variable)}>
+      <Navbar hidden={!isHeadingVisible} changed={isNavbarChanged} />
       <header className={styles.Home__header}>
         <Button
           className={clsx(
             styles["Home__video-btn"],
             isHeadingVisible && styles["is-hidden"]
           )}
+          type="filled"
           isRound={true}
           onClick={() => setIsHeadingVisible(true)}
         >
@@ -61,7 +82,7 @@ export default function Home() {
             <source src="/bg.webm" type="video/webm" />
           </video>
         </div>
-        <div className={styles.Home__container}>
+        <div className={clsx(styles.Home__container, styles.heading)}>
           <div
             className={clsx(
               styles.Home__title,
@@ -70,14 +91,12 @@ export default function Home() {
           >
             <div className={styles["Home__title--text"]}>
               <h1>
-                Experience <i>Japan</i>{" "}
-                <em>
-                  one <i>word</i> at a time
-                </em>
+                Experience <i>Japan</i> one <i>word</i> at a time
               </h1>
               <div className={styles["Home__title--actions"]}>
                 <Button
                   className={clsx(styles.Home__button, styles["video"])}
+                  size="lg"
                   onClick={() => setIsHeadingVisible(false)}
                 >
                   <span>Watch video</span>
@@ -88,11 +107,6 @@ export default function Home() {
           </div>
         </div>
       </header>
-      <section
-        className={clsx(styles.Home__section, styles["Home__section--promo"])}
-      >
-        <div className={styles.Home__container}></div>
-      </section>
       <section
         className={clsx(
           styles.Home__section,
@@ -105,32 +119,47 @@ export default function Home() {
           </h2>
           <ul className={clsx(styles["Home__section--list"], styles.strengths)}>
             <li className={styles["Home__section--list__item"]}>
-              <i></i>
+              <i>
+                <LanguageIcon />
+              </i>
+              <b>Trilingual</b>
               <span>
                 Sekolah bahasa di Jakarta dengan guru Native Jepang trilingual
                 (Bahasa Jepang, English, Indonesian)
               </span>
             </li>
             <li className={styles["Home__section--list__item"]}>
-              <i></i>
+              <i>
+                <InternetIcon />
+              </i>
+              <b>Online/Offline</b>
               <span>Sedia kelas Online dan Offline</span>
             </li>
             <li className={styles["Home__section--list__item"]}>
-              <i></i>
+              <i>
+                <ChatIcon />
+              </i>
+              <b>Konsultasi</b>
               <span>
                 Siap membantu anda dengan konsultasi untuk kerja atau
                 melanjutkan sekolah di Jepang
               </span>
             </li>
             <li className={styles["Home__section--list__item"]}>
-              <i></i>
+              <i>
+                <ConnectionIcon />
+              </i>
+              <b>Koneksi</b>
               <span>
                 Kita ada koneksi di Jepang untuk membantu anda mencapai impian
                 kerja atau belajar di Jepang
               </span>
             </li>
             <li className={styles["Home__section--list__item"]}>
-              <i></i>
+              <i>
+                <AcademicIcon />
+              </i>
+              <b>Membantu</b>
               <span>
                 Kita akan membantu anda langkah demi langkah sampai tinggal di
                 Jepang
@@ -154,10 +183,10 @@ export default function Home() {
                   alt="Motohisa Katayama"
                   fill={true}
                   placeholder="blur"
-                  style={{ objectFit: "contain", objectPosition: "center" }}
+                  style={{ objectFit: "cover", objectPosition: "center" }}
                 />
               </picture>
-              <span className={styles.name}>Denielsen Paulus</span>
+              <b className={styles.name}>Denielsen Paulus</b>
               <span className={styles.role}>Head of School</span>
             </li>
             <li className={styles["Home__section--list__item"]}>
@@ -167,10 +196,10 @@ export default function Home() {
                   alt="Motohisa Katayama"
                   fill={true}
                   placeholder="blur"
-                  style={{ objectFit: "contain", objectPosition: "center" }}
+                  style={{ objectFit: "cover", objectPosition: "center" }}
                 />
               </picture>
-              <span className={styles.name}>Motohisa Katayama</span>
+              <b className={styles.name}>Motohisa Katayama</b>
               <span className={styles.role}>Teacher</span>
             </li>
           </ul>

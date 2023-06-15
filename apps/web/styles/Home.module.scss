@@ -54,37 +54,6 @@
     }
   }
 
-  &__button {
-    font-size: $fs-tagline;
-    transition: gap $t-ease, background-color $t-ease, font-weight $t-ease,
-      letter-spacing $t-ease;
-
-    svg {
-      transition: transform $t-ease;
-    }
-
-    &:hover {
-      gap: $sp-4;
-      background-color: rgba($cl-white, 0.2);
-      font-weight: 500;
-      letter-spacing: 0.2px;
-
-      svg {
-        transform: rotate(45deg);
-      }
-    }
-
-    &.video:hover {
-      svg {
-        transform: none;
-      }
-    }
-
-    @media screen and (max-width: $bp-sm) {
-      font-size: $fs-body;
-    }
-  }
-
   &__video-btn {
     position: absolute;
     top: 0;
@@ -92,25 +61,51 @@
     z-index: 10;
     background-color: $cl-white;
     margin: $sp-4;
-    padding: $pd-btn-sq;
 
     &.is-hidden {
       opacity: 0;
       pointer-events: none;
+    }
+
+    svg path {
+      stroke: $cl-white;
     }
   }
 
   &__container {
     margin: 0 auto;
     width: 100%;
-    max-width: $cs-full;
 
-    @media screen and (min-width: $bp-sm) {
-      max-width: $cs-contained;
+    &.heading {
+      max-width: $cs-header;
+      padding-left: $sp-8;
+      padding-right: $sp-8;
+
+      @media screen and (min-width: $bp-md) {
+        padding-left: 0;
+        padding-right: 0;
+      }
     }
 
-    @media screen and (min-width: $bp-lg) {
-      max-width: $cs-header;
+    &.section {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      max-width: $cs-section;
+      padding-top: $sp-xl;
+      padding-bottom: calc($sp-xl + $sp-8);
+      padding-left: $sp-4;
+      padding-right: $sp-4;
+
+      @media screen and (min-width: $bp-2xl) {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      @media screen and (min-width: $bp-sm-var) {
+        padding-left: $sp-8;
+        padding-right: $sp-8;
+      }
     }
   }
 
@@ -132,23 +127,17 @@
 
       h1 {
         color: $cl-white;
-        font-size: clamp($fs-h1-sm, 0.9091rem + 7.9545vw, $fs-h1);
-        font-weight: 600;
+        font-size: $fs-h1-md;
         text-align: center;
         pointer-events: none;
-
-        b {
-          color: $cl-red;
-        }
-
-        em {
-          display: block;
-          font-style: normal;
-        }
 
         i {
           font-style: normal;
           color: $cl-red;
+        }
+
+        @media screen and (min-width: $bp-md) {
+          font-size: $fs-h1;
         }
       }
     }
@@ -174,6 +163,108 @@
 
   &__section {
     position: relative;
-    height: 100vh;
+
+    &--strengths {
+      background-color: $cl-white;
+    }
+
+    &--staff {
+      background: $gr-dark;
+      color: $cl-white;
+    }
+
+    &--list {
+      $list: &;
+      margin-top: $sp-9;
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: $sp-4;
+      width: $cs-full;
+
+      &__item {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: $sp-2;
+        max-height: 24rem;
+        padding: $sp-8;
+        width: $cs-full;
+        box-shadow: $bs-item;
+        border-radius: $sp-1;
+        grid-column: span 2;
+        transition: $t-ease;
+
+        &:last-child:nth-child(3n - 1) {
+          grid-column-end: -2;
+        }
+
+        &:nth-last-child(2):nth-child(3n + 1) {
+          grid-column-end: 4;
+        }
+
+        i {
+          padding: $sp-4 0;
+
+          svg {
+            width: $sp-10;
+            height: $sp-10;
+            stroke: $cl-red;
+          }
+        }
+
+        b {
+          font-family: var(--font-inter);
+          line-height: $lh-h1;
+          font-weight: 600;
+          font-size: $fs-tagline;
+          color: $cl-black;
+        }
+
+        span {
+          font-size: $fs-sm;
+          font-weight: 500;
+          line-height: $lh-item;
+          color: rgba($cl-black, 0.8);
+        }
+
+        &:hover {
+          box-shadow: none;
+          background-color: rgba($cl-red, 0.1);
+        }
+      }
+
+      &.staff {
+        #{ $list }__item {
+          background: rgba($cl-white, 0.02);
+          box-shadow: $bs-item-inset;
+          padding: $sp-9;
+          border: 1px solid $cl-dark-2;
+
+          b,
+          span {
+            color: $cl-white;
+          }
+
+          b {
+            margin-top: $sp-4;
+          }
+
+          picture {
+            position: relative;
+            width: 10rem;
+            height: 10rem;
+            border-radius: 50%;
+            overflow: hidden;
+          }
+
+          &:hover {
+            box-shadow: none;
+            background-color: rgba($cl-white, 0.1);
+          }
+        }
+      }
+    }
   }
 }

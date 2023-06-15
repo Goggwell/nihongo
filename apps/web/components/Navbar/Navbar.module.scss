@@ -6,26 +6,23 @@
   display: flex;
   justify-content: center;
   z-index: 1000;
-  transition: opacity $t-ease;
+  transition: $t-ease;
 
   &.is-hidden {
     opacity: 0;
     pointer-events: none;
   }
 
+  &.is-changed {
+    background-color: $cl-black;
+    border-bottom: 1px solid $cl-dark-2;
+  }
+
   &__container {
     width: 100%;
-    max-width: $cs-full;
+    max-width: $cs-navbar;
     display: flex;
     justify-content: center;
-
-    @media screen and (min-width: $bp-sm) {
-      max-width: $cs-contained;
-    }
-
-    @media screen and (min-width: $bp-lg) {
-      max-width: $cs-header;
-    }
   }
 
   &__main {
@@ -36,7 +33,7 @@
     justify-content: space-between;
     padding: $sp-6;
     list-style: none;
-    font-size: $fs-body;
+    font-size: $fs-navbar;
   }
 
   &__logo {
@@ -54,7 +51,7 @@
 
   &__item {
     p {
-      font-weight: 400;
+      font-weight: 500;
       color: $cl-white;
       transition: color $t-ease;
     }

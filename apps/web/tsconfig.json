@@ -5,7 +5,8 @@
       "@/components/*": ["components/*"],
       "@/icons/*": ["components/Icons/*"],
       "@/pages/*": ["pages/*"],
-      "@/styles/*": ["styles/*"]
+      "@/styles/*": ["styles/*"],
+      "@/fonts/*": ["fonts/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

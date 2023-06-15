@@ -1,15 +1,54 @@
 .Button {
-  border-radius: 8px;
+  border-radius: $sp-1;
   background-color: rgba($cl-white, 0.1);
   color: $cl-white;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: $hg-btn;
+  line-height: $lh-btn;
   gap: $sp-2;
   font-size: $fs-btn;
+  font-weight: 600;
   padding: $pd-btn;
+  transition: $t-ease;
+
+  &.lg {
+    height: $hg-btn-lg;
+    font-size: $fs-btn-lg;
+    line-height: $lh-btn-lg;
+
+    &.is-round {
+      width: $hg-btn-lg;
+    }
+  }
+
+  &.transparent {
+    background-color: transparent;
+    border: 1px solid rgba($cl-red, 0.5);
+  }
+
+  &.filled {
+    background-color: rgba($cl-red, 0.8);
+    border: none;
+  }
 
   &.is-round {
     border-radius: 50%;
+    width: $hg-btn;
+    padding: 0;
+  }
+
+  &:hover {
+    &.transparent {
+      background-color: rgba($cl-white, 0.1);
+      border-color: rgba($cl-red, 1);
+      box-shadow: $bs-default;
+    }
+
+    &.filled {
+      background-color: rgba($cl-red, 1);
+      box-shadow: $bs-default;
+    }
   }
 }
