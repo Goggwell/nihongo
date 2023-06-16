@@ -46,7 +46,9 @@ h6,
 p,
 span,
 button,
-figcaption {
+figcaption,
+form,
+li {
   font-family: var(--font-inter);
 }
 
@@ -77,6 +79,10 @@ button {
 ul,
 li {
   list-style: none;
+}
+
+figure {
+  margin: 0;
 }
 
 * {

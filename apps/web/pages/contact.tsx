@@ -44,11 +44,11 @@ export default function Contact() {
       <Navbar changed={true} />
       <div className={styles.Contact__box}>
         <div className={styles.Contact__container}>
-          <div className={styles.Contact__heading}>
-            <h1 className={styles.Contact__title}>Contact us</h1>
-          </div>
           <div className={styles.Contact__fields}>
             <div className={styles.Contact__form__container}>
+              <div className={styles.Contact__heading}>
+                <h1 className={styles.Contact__title}>Contact us</h1>
+              </div>
               <form className={styles.Contact__form} onSubmit={handleSubmit}>
                 <div className={styles["Contact__form--input__container"]}>
                   <label htmlFor="name">Nama</label>

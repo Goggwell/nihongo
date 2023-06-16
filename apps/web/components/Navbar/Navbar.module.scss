@@ -14,8 +14,9 @@
   }
 
   &.is-changed {
-    background-color: $cl-black;
+    background-color: rgba($cl-black, 0.8);
     border-bottom: 1px solid $cl-dark-2;
+    backdrop-filter: blur(10px);
   }
 
   &__container {

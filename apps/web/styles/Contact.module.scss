@@ -2,4 +2,61 @@
   position: relative;
   margin: 0 auto;
   width: 100%;
+  background: $gr-dark;
+  color: $cl-white;
+
+  &__box {
+    padding-top: calc($sp-8-1 + 70px);
+  }
+
+  &__container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 80px 110px;
+
+    @media screen and (max-width: $bp-md-notch) {
+      padding: 0 16px 110px;
+    }
+  }
+
+  &__fields {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: $sp-8;
+    width: 100%;
+
+    @media screen and (max-width: $bp-md-var) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__form {
+    &__container {
+      width: $cs-full;
+      max-width: 470px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: $sp-8;
+    }
+  }
+
+  &__title {
+    font-size: $fs-logo;
+  }
+
+  &__info {
+    &__container {
+      width: $cs-full;
+      max-width: 424px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: $sp-4;
+    }
+  }
 }
