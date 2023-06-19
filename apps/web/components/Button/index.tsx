@@ -10,6 +10,7 @@ export interface IButton {
   type?: "filled" | "transparent";
   buttonType?: "button" | "reset" | "submit";
   disabled?: boolean;
+  isLoading?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
@@ -21,6 +22,7 @@ const Button = ({
   type = "transparent",
   buttonType = "button",
   disabled = false,
+  isLoading = false,
   onClick,
 }: IButton) => {
   return (
@@ -28,6 +30,7 @@ const Button = ({
       className={clsx(
         styles.Button,
         isRound && styles["is-round"],
+        isLoading && styles["is-loading"],
         styles[size],
         styles[type],
         className

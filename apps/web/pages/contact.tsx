@@ -5,6 +5,7 @@ import { inter, basierSquare } from "@/fonts/fonts";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Button from "@/components/Button";
+import Snackbar from "@/components/Snackbar";
 
 import YoutubeIcon from "@/components/Icons/YoutubeIcon";
 import InstagramIcon from "@/components/Icons/InstagramIcon";
@@ -16,9 +17,17 @@ import styles from "@/styles/Contact.module.scss";
 export default function Contact() {
   const [formName, setFormName] = useState("");
   const [formMessage, setFormMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   const validateForm = () => {
     return formName && formMessage;
+  };
+
+  const closeSnackbar = () => {
+    setIsSuccess(false);
+    setIsError(false);
   };
 
   async function handleSubmit(e) {
@@ -39,9 +48,16 @@ export default function Contact() {
         body: json,
       }
     );
+    setIsLoading(true);
+
     const result = await response.json();
-    if (result.success) {
-      console.log(result);
+
+    if (result.success === "true") {
+      setIsLoading(false);
+      setIsSuccess(true);
+    } else {
+      setIsLoading(false);
+      setIsError(true);
     }
   }
 
@@ -86,6 +102,7 @@ export default function Contact() {
                   className={styles.Contact__form__submit}
                   type="filled"
                   disabled={!validateForm()}
+                  isLoading={isLoading}
                 >
                   Submit Form
                 </Button>
@@ -125,6 +142,10 @@ export default function Contact() {
           </div>
         </div>
       </div>
+      <Snackbar isError={isError} isSuccess={isSuccess} onClick={closeSnackbar}>
+        {isSuccess && "Pesan terkirim! Terima kasih telah menghubungi kami!"}
+        {isError && "Error! Coba kirim lagi."}
+      </Snackbar>
       <Footer />
     </div>
   );

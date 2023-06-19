@@ -29,8 +29,14 @@ h6,
 p,
 span,
 button,
-figcaption {
+figcaption,
+form,
+textarea,
+input,
+li {
   line-height: normal;
+  margin: 0;
+  padding: 0;
 }
 
 h1,
@@ -48,6 +54,8 @@ span,
 button,
 figcaption,
 form,
+textarea,
+input,
 li {
   font-family: var(--font-inter);
 }
