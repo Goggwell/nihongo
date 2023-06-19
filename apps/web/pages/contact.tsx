@@ -4,6 +4,7 @@ import { inter, basierSquare } from "@/fonts/fonts";
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Button from "@/components/Button";
 
 import YoutubeIcon from "@/components/Icons/YoutubeIcon";
 import InstagramIcon from "@/components/Icons/InstagramIcon";
@@ -13,6 +14,13 @@ import clsx from "clsx";
 import styles from "@/styles/Contact.module.scss";
 
 export default function Contact() {
+  const [formName, setFormName] = useState("");
+  const [formMessage, setFormMessage] = useState("");
+
+  const validateForm = () => {
+    return formName && formMessage;
+  };
+
   async function handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -52,7 +60,13 @@ export default function Contact() {
               <form className={styles.Contact__form} onSubmit={handleSubmit}>
                 <div className={styles["Contact__form--input__container"]}>
                   <label htmlFor="name">Nama</label>
-                  <input id="name" type="text" name="name" required />
+                  <input
+                    id="name"
+                    type="text"
+                    name="name"
+                    onChange={(e) => setFormName(e.target.value)}
+                    required
+                  />
                 </div>
                 <div className={styles["Contact__form--input__container"]}>
                   <label htmlFor="email">Email</label>
@@ -60,9 +74,21 @@ export default function Contact() {
                 </div>
                 <div className={styles["Contact__form--input__container"]}>
                   <label htmlFor="message">Pertanyaan</label>
-                  <textarea id="message" name="message" required></textarea>
+                  <textarea
+                    id="message"
+                    name="message"
+                    onChange={(e) => setFormMessage(e.target.value)}
+                    required
+                  ></textarea>
                 </div>
-                <button type="submit">Submit Form</button>
+                <Button
+                  buttonType="submit"
+                  className={styles.Contact__form__submit}
+                  type="filled"
+                  disabled={!validateForm()}
+                >
+                  Submit Form
+                </Button>
               </form>
             </div>
             <div className={styles.Contact__info__container}>

@@ -6,35 +6,48 @@
   color: $cl-white;
 
   &__box {
-    padding-top: calc($sp-8-1 + 70px);
+    min-height: calc(100vh - 186.5px);
+    display: grid;
+    place-items: center;
   }
 
   &__container {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin: 0 auto;
-    padding: 0 80px 110px;
-
-    @media screen and (max-width: $bp-md-notch) {
-      padding: 0 16px 110px;
-    }
+    width: 100%;
+    // margin: 0 auto;
   }
 
   &__fields {
     display: flex;
     justify-content: center;
     align-items: stretch;
-    gap: $sp-8;
+    gap: $sp-10;
     width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 80px;
+
+    @media screen and (max-width: $bp-md-notch) {
+      padding: 0 16px 110px;
+    }
 
     @media screen and (max-width: $bp-md-var) {
       flex-direction: column;
       align-items: center;
+      gap: $sp-8;
     }
   }
 
   &__form {
+    width: $cs-full;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: $sp-7;
+
     &__container {
       width: $cs-full;
       max-width: 470px;
@@ -43,16 +56,77 @@
       align-items: flex-start;
       gap: $sp-8;
     }
+
+    &--input {
+      &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: $sp-2;
+
+        label,
+        input,
+        textarea {
+          transition: $t-ease;
+        }
+
+        label {
+          font-size: $sp-3;
+          font-weight: 500;
+          line-height: $sp-4;
+          color: $cl-gray;
+        }
+
+        input,
+        textarea {
+          font-size: $sp-3-notch;
+          line-height: $fs-tagline;
+          padding: $sp-2 $sp-3;
+          border-radius: 4px;
+          width: $cs-full;
+          color: $cl-white;
+          background-color: $cl-dark-2;
+          border: 1px solid $cl-gray;
+
+          &:focus {
+            background-color: $cl-dark-1;
+            border-color: $cl-white;
+          }
+        }
+
+        textarea {
+          height: $sp-xl;
+          resize: none;
+          cursor: text;
+        }
+
+        &:focus-within label {
+          color: $cl-white;
+        }
+      }
+    }
+
+    &__submit {
+      background-color: $cl-white !important;
+      color: $cl-dark-1;
+
+      &:disabled {
+        background-color: $cl-gray !important;
+        color: $cl-dark-2;
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+    }
   }
 
   &__title {
-    font-size: $fs-logo;
+    font-size: $fs-h1-sm;
   }
 
   &__info {
     &__container {
       width: $cs-full;
-      max-width: 424px;
+      max-width: 470px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;

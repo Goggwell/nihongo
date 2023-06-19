@@ -5,9 +5,11 @@ import styles from "./Button.module.scss";
 export interface IButton {
   children?: ReactNode | JSX.Element;
   className?: string;
-  isRound?: Boolean;
+  isRound?: boolean;
   size?: "sm" | "md" | "lg";
   type?: "filled" | "transparent";
+  buttonType?: "button" | "reset" | "submit";
+  disabled?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
@@ -17,6 +19,8 @@ const Button = ({
   isRound,
   size = "md",
   type = "transparent",
+  buttonType = "button",
+  disabled = false,
   onClick,
 }: IButton) => {
   return (
@@ -28,7 +32,9 @@ const Button = ({
         styles[type],
         className
       )}
+      type={buttonType}
       onClick={onClick}
+      disabled={disabled}
     >
       {children}
     </button>
