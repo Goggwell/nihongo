@@ -1,4 +1,7 @@
 import Link from "next/link";
+
+import Logo from "@/icons/Logo";
+
 import clsx from "clsx";
 import styles from "./Navbar.module.scss";
 
@@ -20,9 +23,10 @@ const Navbar = ({ hidden = false, changed }: INavbar) => {
         <ul className={styles.Navbar__main}>
           <Link href="/">
             <li className={styles.Navbar__logo}>
-              <span>
+              {/* <span>
                 NIHON<b>GO!</b>
-              </span>
+              </span> */}
+              <Logo />
             </li>
           </Link>
           <ul className={styles.Navbar__items}>

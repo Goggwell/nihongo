@@ -9,13 +9,13 @@ import Button from "@/components/Button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-import VideoIcon from "@/components/Icons/VideoIcon";
-import CrossIcon from "@/components/Icons/CrossIcon";
-import LanguageIcon from "@/components/Icons/LanguageIcon";
-import InternetIcon from "@/components/Icons/InternetIcon";
-import ChatIcon from "@/components/Icons/ChatIcon";
-import ConnectionIcon from "@/components/Icons/ConnectionIcon";
-import AcademicIcon from "@/components/Icons/AcademicIcon";
+import VideoIcon from "@/icons/VideoIcon";
+import CrossIcon from "@/icons/CrossIcon";
+import LanguageIcon from "@/icons/LanguageIcon";
+import InternetIcon from "@/icons/InternetIcon";
+import ChatIcon from "@/icons/ChatIcon";
+import ConnectionIcon from "@/icons/ConnectionIcon";
+import AcademicIcon from "@/icons/AcademicIcon";
 
 import moto from "../public/moto.webp";
 

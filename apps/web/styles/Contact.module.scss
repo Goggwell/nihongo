@@ -27,10 +27,10 @@
     width: 100%;
     max-width: $cs-section;
     margin: 0 auto;
-    padding: 0 80px;
+    padding: 110px 80px;
 
     @media screen and (max-width: $bp-md-notch) {
-      padding: 0 16px 110px;
+      padding: 110px 16px;
     }
 
     @media screen and (max-width: $bp-md-var) {
@@ -71,7 +71,7 @@
         }
 
         label {
-          font-size: $sp-3;
+          font-size: $sp-3-notch;
           font-weight: 500;
           line-height: $sp-4;
           color: $cl-gray;
@@ -108,7 +108,7 @@
 
     &__submit {
       background-color: $cl-white !important;
-      color: $cl-dark-1;
+      color: $cl-dark-1 !important;
 
       &:disabled {
         background-color: $cl-gray !important;
@@ -120,7 +120,7 @@
   }
 
   &__title {
-    font-size: $fs-h1-sm;
+    font-size: $fs-h1-contact;
   }
 
   &__info {

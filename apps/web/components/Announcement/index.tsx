@@ -2,7 +2,7 @@ import { useState } from "react";
 import clsx from "clsx";
 import styles from "./Announcement.module.scss";
 import Button from "@/components/Button";
-import CrossIcon from "@/components/Icons/CrossIcon";
+import CrossIcon from "@/icons/CrossIcon";
 
 const Announcement = () => {
   const [isClosed, setIsClosed] = useState(false);

@@ -11,7 +11,6 @@ export interface ISnackbar {
   className?: string;
   isError?: boolean;
   isSuccess?: boolean;
-  onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
 const Snackbar = ({
@@ -19,7 +18,6 @@ const Snackbar = ({
   className,
   isError = false,
   isSuccess = false,
-  onClick,
 }: ISnackbar) => {
   return (
     <div
@@ -31,15 +29,15 @@ const Snackbar = ({
         className
       )}
     >
-      <Button
+      {/* <Button
         className={styles.Snackbar__close}
-        type="filled"
+        type="transparent"
         isRound={true}
         size="sm"
         onClick={onClick}
       >
         <CrossIcon />
-      </Button>
+      </Button> */}
       {children}
     </div>
   );

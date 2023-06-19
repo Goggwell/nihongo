@@ -30,7 +30,7 @@
   }
 
   &__close {
-    position: absolute;
+    position: absolute !important;
     top: 0;
     right: 0;
     margin: $sp-4;

@@ -6,10 +6,11 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Button from "@/components/Button";
 import Snackbar from "@/components/Snackbar";
+import Map from "@/components/Map";
 
-import YoutubeIcon from "@/components/Icons/YoutubeIcon";
-import InstagramIcon from "@/components/Icons/InstagramIcon";
-import FacebookIcon from "@/components/Icons/FacebookIcon";
+import YoutubeIcon from "@/icons/YoutubeIcon";
+import InstagramIcon from "@/icons/InstagramIcon";
+import FacebookIcon from "@/icons/FacebookIcon";
 
 import clsx from "clsx";
 import styles from "@/styles/Contact.module.scss";
@@ -20,6 +21,8 @@ export default function Contact() {
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
+  const address =
+    "Jl. Taman Palem Lestari No.16, RT.5/RW.13, Cengkareng Bar., Kecamatan Cengkareng, Kota Jakarta Barat";
 
   const validateForm = () => {
     return formName && formMessage;
@@ -32,6 +35,7 @@ export default function Contact() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    setIsLoading(true);
     const formData = new FormData(e.target);
 
     const object = Object.fromEntries(formData);
@@ -48,16 +52,21 @@ export default function Contact() {
         body: json,
       }
     );
-    setIsLoading(true);
 
     const result = await response.json();
 
     if (result.success === "true") {
       setIsLoading(false);
       setIsSuccess(true);
+      setTimeout(() => {
+        closeSnackbar();
+      }, 2000);
     } else {
       setIsLoading(false);
       setIsError(true);
+      setTimeout(() => {
+        closeSnackbar();
+      }, 2000);
     }
   }
 
@@ -104,13 +113,15 @@ export default function Contact() {
                   disabled={!validateForm()}
                   isLoading={isLoading}
                 >
-                  Submit Form
+                  <span>Submit Form</span>
                 </Button>
               </form>
             </div>
             <div className={styles.Contact__info__container}>
               <figure className={styles.Contact__info__map}>
-                <div className={styles.map}></div>
+                <div className={styles.map}>
+                  <Map address={address} />
+                </div>
                 <figcaption className={styles.address}>
                   Jl. Taman Palem Lestari No.16, RT.5/RW.13, Cengkareng Bar.,
                   Kecamatan Cengkareng, Kota Jakarta Barat
@@ -142,7 +153,7 @@ export default function Contact() {
           </div>
         </div>
       </div>
-      <Snackbar isError={isError} isSuccess={isSuccess} onClick={closeSnackbar}>
+      <Snackbar isError={isError} isSuccess={isSuccess}>
         {isSuccess && "Pesan terkirim! Terima kasih telah menghubungi kami!"}
         {isError && "Error! Coba kirim lagi."}
       </Snackbar>

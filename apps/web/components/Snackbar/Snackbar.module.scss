@@ -32,10 +32,10 @@
     top: 0;
     right: 0;
     margin: $sp-1;
-    background-color: $cl-white !important;
+    border-color: transparent !important;
 
     svg path {
-      stroke: $cl-dark-1;
+      stroke: $cl-white;
     }
   }
 }

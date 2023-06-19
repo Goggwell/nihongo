@@ -1,4 +1,7 @@
 import { ReactNode, MouseEventHandler } from "react";
+
+import SpinnerIcon from "@/icons/SpinnerIcon";
+
 import clsx from "clsx";
 import styles from "./Button.module.scss";
 
@@ -40,6 +43,9 @@ const Button = ({
       disabled={disabled}
     >
       {children}
+      <div className={styles.Button__loading}>
+        <SpinnerIcon />
+      </div>
     </button>
   );
 };

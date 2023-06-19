@@ -43,6 +43,7 @@ $fs-body: 1rem;
 $fs-tagline: 1.25rem;
 $fs-logo: 1.5rem;
 $fs-h1: 4rem;
+$fs-h1-contact: 3rem;
 $fs-h1-md: 2.25rem;
 $fs-h1-sm: 2.5rem;
 $fs-h2: 2.25rem;
@@ -94,3 +95,4 @@ $gr-dark: linear-gradient(
 
 // transitions
 $t-ease: ease 200ms;
+$t-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55) 250ms;

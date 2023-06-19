@@ -38,15 +38,23 @@
   }
 
   &__logo {
-    span {
-      font-size: $fs-logo;
-      font-weight: 500;
-      color: $cl-white;
+    // span {
+    //   font-size: $fs-logo;
+    //   font-weight: 500;
+    //   color: $cl-white;
 
-      b {
-        color: $cl-red;
-        font-weight: 700;
-      }
+    //   b {
+    //     color: $cl-red;
+    //     font-weight: 700;
+    //   }
+    // }
+    svg {
+      transform: scale(0.8);
+      transition: $t-elastic;
+    }
+
+    &:hover svg {
+      transform: scale(0.9) rotate(5deg);
     }
   }
 
