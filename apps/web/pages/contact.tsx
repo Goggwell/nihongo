@@ -21,8 +21,6 @@ export default function Contact() {
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
-  const address =
-    "Jl. Taman Palem Lestari No.16, RT.5/RW.13, Cengkareng Bar., Kecamatan Cengkareng, Kota Jakarta Barat";
 
   const validateForm = () => {
     return formName && formMessage;
@@ -120,7 +118,7 @@ export default function Contact() {
             <div className={styles.Contact__info__container}>
               <figure className={styles.Contact__info__map}>
                 <div className={styles.map}>
-                  <Map address={address} />
+                  <Map />
                 </div>
                 <figcaption className={styles.address}>
                   Jl. Taman Palem Lestari No.16, RT.5/RW.13, Cengkareng Bar.,
