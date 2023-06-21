@@ -12,16 +12,10 @@ import { IPosts } from "@/lib/types";
 
 import clsx from "clsx";
 import styles from "@/styles/Blog.module.scss";
-import { useEffect } from "react";
 
 export default function Blog({ posts }: IPosts) {
   const featuredPost = posts[0];
   const otherPosts = posts.slice(1);
-
-  useEffect(() => {
-    console.log(featuredPost);
-    console.log(posts);
-  }, [posts]);
 
   return (
     <div className={clsx(styles.Blog, inter.variable, basierSquare.variable)}>
@@ -70,6 +64,36 @@ export default function Blog({ posts }: IPosts) {
             </div>
           </div>
         </Link>
+        <div className={styles["Blog__posts--container"]}>
+          <ul className={styles.Blog__posts}>
+            {otherPosts.length > 0 &&
+              otherPosts.map((post) => (
+                <li key={post.slug} className={styles.post}>
+                  <Link href="/posts/[slug]" as={`/posts/${post.slug}`}>
+                    <div className={styles.post__body}>
+                      <picture className={styles.post__image}>
+                        <Image
+                          src={post.coverImage.picture}
+                          alt={post.title}
+                          fill={true}
+                          placeholder="blur"
+                          blurDataURL={post.coverImage.hash}
+                        />
+                      </picture>
+                      <div className={styles.post__title}>
+                        <h3>{post.title}</h3>
+                      </div>
+                    </div>
+                    <div className={styles.post__footer}>
+                      <span>
+                        {post.author.name} · <Date date={post.date} />
+                      </span>
+                    </div>
+                  </Link>
+                </li>
+              ))}
+          </ul>
+        </div>
       </div>
       <Footer />
     </div>

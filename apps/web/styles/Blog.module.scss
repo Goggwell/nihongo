@@ -14,10 +14,14 @@
     min-height: calc(100vh - 186.5px);
     max-width: $cs-section;
     margin: 0 auto;
-    padding-top: calc($sp-xl + $sp-8);
+    padding: calc($sp-xl + $sp-8) $sp-8;
 
     @media screen and (min-width: $bp-lg) {
       gap: $sp-10;
+    }
+
+    @media screen and (min-width: $bp-2xl) {
+      padding: calc($sp-xl + $sp-8) 0;
     }
   }
 
@@ -26,21 +30,13 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 0 $sp-4;
+    padding: 0;
     gap: $sp-8;
     border-radius: $sp-4;
     transition: $t-ease;
 
-    @media screen and (min-width: $bp-sm-var) {
-      padding: 0 $sp-8;
-    }
-
     @media screen and (min-width: $bp-lg) {
       flex-direction: row;
-    }
-
-    @media screen and (min-width: $bp-2xl) {
-      padding: 0;
     }
 
     &:hover {
@@ -53,6 +49,16 @@
       border-radius: $sp-4;
       width: 100%;
       aspect-ratio: 16/9;
+      max-height: 25rem;
+
+      img {
+        object-fit: cover;
+        object-position: center;
+      }
+
+      @media screen and (min-width: $bp-lg) {
+        max-height: initial;
+      }
     }
 
     &--info {
@@ -111,6 +117,101 @@
 
       time {
         font-size: $fs-sm;
+      }
+    }
+  }
+
+  &__posts {
+    position: relative;
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    gap: $sp-8;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+
+    @media screen and (min-width: $bp-md) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media screen and (min-width: $bp-lg) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    &--container {
+      padding-top: $sp-8;
+      width: $cs-full;
+
+      @media screen and (min-width: $bp-2xl) {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+
+    .post {
+      will-change: transform;
+      transition: $t-ease;
+      transform: perspective(1000px) rotate(0deg) scale3d(1, 1, 1);
+
+      a {
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: $sp-2;
+        border: 1px solid $cl-dark-2;
+        background: $gr-dark-2;
+        color: $cl-white;
+        overflow: hidden;
+        transition: $t-ease;
+
+        &:hover {
+          transform: translateY(-1%);
+          border-color: $cl-white;
+        }
+      }
+
+      &__body {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: $sp-2;
+      }
+
+      &__image {
+        position: relative;
+        height: 13rem;
+        width: 100%;
+
+        img {
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+
+      &__title {
+        padding-top: $sp-6;
+        padding-left: $sp-6;
+        padding-right: $sp-6;
+
+        h3 {
+          font-weight: 500;
+          line-height: $lh-item;
+          font-size: $fs-tagline;
+        }
+      }
+
+      &__footer {
+        width: 100%;
+        padding: $sp-6;
+
+        span {
+          color: $cl-dark-2;
+          font-size: $fs-sm;
+          line-height: $lh-item;
+        }
       }
     }
   }

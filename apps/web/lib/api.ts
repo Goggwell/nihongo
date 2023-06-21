@@ -1,8 +1,8 @@
 import { client } from "./client";
 
-const getUniquePosts = (posts) => {
+const getUniquePosts = (posts: any) => {
   const slugs = new Set();
-  return posts.filter((post) => {
+  return posts.filter((post: any) => {
     if (slugs.has(post.slug)) {
       return false;
     } else {

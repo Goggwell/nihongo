@@ -94,6 +94,12 @@ $gr-dark: linear-gradient(
   $cl-dark-1 50%,
   $cl-dark-1 100%
 );
+$gr-dark-2: linear-gradient(
+  170deg,
+  $cl-black 30%,
+  $cl-dark-1 60%,
+  rgba($cl-dark-2, 0.2) 100%
+);
 
 // transitions
 $t-ease: ease 200ms;

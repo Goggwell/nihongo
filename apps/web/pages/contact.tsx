@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import { inter, basierSquare } from "@/fonts/fonts";
 
@@ -31,7 +31,7 @@ export default function Contact() {
     setIsError(false);
   };
 
-  async function handleSubmit(e) {
+  async function handleSubmit(e: any) {
     e.preventDefault();
     setIsLoading(true);
     const formData = new FormData(e.target);
