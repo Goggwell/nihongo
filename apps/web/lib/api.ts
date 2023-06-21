@@ -1,6 +1,4 @@
-import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { client } from "./client";
-import imageUrlBuilder from "@sanity/image-url";
 
 const getUniquePosts = (posts) => {
   const slugs = new Set();
@@ -21,8 +19,8 @@ const postFields = `
     'date': publishedAt,
     excerpt,
     'slug': slug.current,
-    'coverImage': mainImage,
-    'author': author->{name, 'picture': image.asset->url},
+    'coverImage': {'picture': mainImage.asset->url, 'hash': mainImage.asset->metadata.lqip},
+    'author': author->{name, 'picture': image.asset->url, 'hash': image.asset->metadata.lqip},
 `;
 
 export async function getAllPosts() {
@@ -33,7 +31,3 @@ export async function getAllPosts() {
     `);
   return getUniquePosts(posts);
 }
-
-export const urlForImage = (source: SanityImageSource) => {
-  return imageUrlBuilder(client).image(source).auto("format").fit("max");
-};

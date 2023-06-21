@@ -1,22 +1,26 @@
 import Link from "next/link";
 import Image from "next/image";
-import { getAllPosts, urlForImage } from "@/lib/api";
+import { getAllPosts } from "@/lib/api";
 
 import { inter, basierSquare } from "@/fonts/fonts";
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Date from "@/components/Date";
+
+import { IPosts } from "@/lib/types";
 
 import clsx from "clsx";
 import styles from "@/styles/Blog.module.scss";
 import { useEffect } from "react";
 
-export default function Blog({ posts }) {
+export default function Blog({ posts }: IPosts) {
   const featuredPost = posts[0];
   const otherPosts = posts.slice(1);
 
   useEffect(() => {
     console.log(featuredPost);
+    console.log(posts);
   }, [posts]);
 
   return (
@@ -31,12 +35,40 @@ export default function Blog({ posts }) {
         >
           <picture className={styles["Blog__featured--image"]}>
             <Image
-              src={urlForImage(featuredPost.coverImage).url()}
+              src={featuredPost.coverImage.picture}
               alt={featuredPost.title}
               fill={true}
-              unoptimized={true}
+              placeholder="blur"
+              blurDataURL={featuredPost.coverImage.hash}
             />
           </picture>
+          <div className={styles["Blog__featured--info--container"]}>
+            <div className={styles["Blog__featured--info"]}>
+              <h2 className={styles["Blog__featured--title"]}>
+                {featuredPost.title}
+              </h2>
+              <p className={styles["Blog__featured--excerpt"]}>
+                {featuredPost.excerpt}
+              </p>
+              <div className={styles["Blog__featured--author--container"]}>
+                <picture className={styles["Blog__featured--author__image"]}>
+                  <Image
+                    src={featuredPost.author.picture}
+                    alt={featuredPost.author.name}
+                    fill={true}
+                    placeholder="blur"
+                    blurDataURL={featuredPost.author.hash}
+                  />
+                </picture>
+                <div className={styles["Blog__featured--author"]}>
+                  <span className={styles["name"]}>
+                    {featuredPost.author.name}
+                  </span>
+                  <Date date={featuredPost.date} />
+                </div>
+              </div>
+            </div>
+          </div>
         </Link>
       </div>
       <Footer />
