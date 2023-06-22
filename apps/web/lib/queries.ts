@@ -24,7 +24,14 @@ export const allPostsSlugsQuery = groq`
 export const postAndMorePostsQuery = groq`
     {
         "post": *[_type == "post" && slug.current == $slug] | order(_updatedAt desc) [0] {
-            body,
+            "body": body[] {
+                ...select(
+                    _type == "image" => {
+                        ...,
+                        "asset": asset->
+                    }
+                )
+            },
             ${postFields}
         },
         "morePosts": *[_type == "post" && slug.current != $slug] | order(publishedAt desc, _updatedAt desc) [0...2] {

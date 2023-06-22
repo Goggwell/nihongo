@@ -1,25 +1,43 @@
-import { useEffect } from "react";
 import { GetStaticProps } from "next";
+
+import Image from "next/image";
+import { PortableText } from "@portabletext/react";
+import { useNextSanityImage } from "next-sanity-image";
+
+import { client } from "@/lib/client";
 import { IPost, IPosts } from "@/lib/types";
 import { getAllPostsSlugs, getPostAndMorePosts } from "@/lib/api";
+
 import styles from "@/styles/Blog.module.scss";
+import { SanityImageSource } from "@sanity/asset-utils";
 
 interface PageProps {
   post: IPost;
   morePosts: IPosts;
 }
 
+const placeholderImageComponent = ({ value }: { value: SanityImageSource }) => {
+  const imageProps = useNextSanityImage(client, value);
+
+  return (
+    <Image
+      {...imageProps}
+      alt="image"
+      placeholder="blur"
+      blurDataURL={value.asset.metadata.lqip}
+    />
+  );
+};
+
 export default function Post(props: PageProps) {
   const { post, morePosts } = props;
 
-  useEffect(() => {
-    console.log(post);
-    console.log(morePosts);
-  }, [post, morePosts]);
-
   return (
     <div>
-      <h1>Howdy</h1>
+      <PortableText
+        value={post.body}
+        components={{ types: { image: placeholderImageComponent } }}
+      />
     </div>
   );
 }
