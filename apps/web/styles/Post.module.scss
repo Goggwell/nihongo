@@ -17,6 +17,10 @@
     margin: 0 auto;
     padding: calc($sp-xl + $sp-8) $sp-8;
 
+    @media screen and (max-width: $bp-sm) {
+      gap: $sp-10;
+    }
+
     @media screen and (min-width: $bp-2xl) {
       padding: calc($sp-xl + $sp-8) 0;
     }
@@ -28,12 +32,38 @@
     align-items: center;
     text-align: center;
     gap: $sp-8-1;
+
+    &--image {
+      position: relative;
+      overflow: hidden;
+      border-radius: $sp-4;
+      width: 100%;
+      aspect-ratio: 16/9;
+      max-height: 25rem;
+
+      img {
+        object-fit: cover;
+        object-position: center;
+      }
+
+      @media screen and (min-width: $bp-lg) {
+        max-height: initial;
+      }
+    }
+
+    @media screen and (max-width: $bp-sm) {
+      gap: $sp-6;
+    }
   }
 
   &__title {
     font-weight: 700;
-    font-size: $fs-h1-md;
     line-height: $lh-snug;
+    font-size: 28px;
+
+    @media screen and (min-width: $bp-md) {
+      font-size: $fs-h1-md;
+    }
   }
 
   &__author {

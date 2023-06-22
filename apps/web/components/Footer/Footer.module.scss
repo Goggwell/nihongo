@@ -23,6 +23,10 @@
       padding-top: $sp-8;
     }
 
+    @media screen and (max-width: $bp-sm) {
+      justify-content: center;
+    }
+
     @media screen and (min-width: $bp-sm-var) {
       padding-left: $sp-8;
       padding-right: $sp-8;
@@ -70,6 +74,10 @@
     display: flex;
     justify-content: space-between;
     gap: $sp-8;
+
+    @media screen and (max-width: $bp-sm) {
+      display: none;
+    }
   }
 
   &__link {

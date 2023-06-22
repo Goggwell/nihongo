@@ -29,6 +29,15 @@ export default function Post(props: PageProps) {
       <Navbar changed={true} />
       <div className={styles.Post__container}>
         <div className={styles.Post__header}>
+          <picture className={styles["Post__header--image"]}>
+            <Image
+              src={post.coverImage.picture}
+              alt={post.title}
+              fill={true}
+              placeholder="blur"
+              blurDataURL={post.coverImage.hash}
+            />
+          </picture>
           <h1 className={styles.Post__title}>{post.title}</h1>
           <div className={styles["Post__author--container"]}>
             <picture className={styles["Post__author__image"]}>
