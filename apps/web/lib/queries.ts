@@ -25,6 +25,7 @@ export const postAndMorePostsQuery = groq`
     {
         "post": *[_type == "post" && slug.current == $slug] | order(_updatedAt desc) [0] {
             "body": body[] {
+                ...,
                 ...select(
                     _type == "image" => {
                         ...,

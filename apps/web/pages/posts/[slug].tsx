@@ -3,13 +3,20 @@ import { GetStaticProps } from "next";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import { useNextSanityImage } from "next-sanity-image";
+import { SanityImageSource } from "@sanity/asset-utils";
+
+import { inter, basierSquare } from "@/fonts/fonts";
+
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import Date from "@/components/Date";
 
 import { client } from "@/lib/client";
 import { IPost, IPosts } from "@/lib/types";
 import { getAllPostsSlugs, getPostAndMorePosts } from "@/lib/api";
 
-import styles from "@/styles/Blog.module.scss";
-import { SanityImageSource } from "@sanity/asset-utils";
+import clsx from "clsx";
+import styles from "@/styles/Post.module.scss";
 
 interface PageProps {
   post: IPost;
@@ -33,11 +40,15 @@ export default function Post(props: PageProps) {
   const { post, morePosts } = props;
 
   return (
-    <div>
-      <PortableText
-        value={post.body}
-        components={{ types: { image: placeholderImageComponent } }}
-      />
+    <div className={clsx(styles.Post, inter.variable, basierSquare.variable)}>
+      <Navbar changed={true} />
+      <div className={styles.Post__container}>
+        <PortableText
+          value={post.body}
+          components={{ types: { image: placeholderImageComponent } }}
+        />
+      </div>
+      <Footer />
     </div>
   );
 }
