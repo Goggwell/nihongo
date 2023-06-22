@@ -1,4 +1,9 @@
 import { client } from "./client";
+import {
+  allPostsQuery,
+  allPostsSlugsQuery,
+  postAndMorePostsQuery,
+} from "./queries";
 
 const getUniquePosts = (posts: any) => {
   const slugs = new Set();
@@ -12,22 +17,16 @@ const getUniquePosts = (posts: any) => {
   });
 };
 
-const postFields = `
-    _id,
-    name,
-    title,
-    'date': publishedAt,
-    excerpt,
-    'slug': slug.current,
-    'coverImage': {'picture': mainImage.asset->url, 'hash': mainImage.asset->metadata.lqip},
-    'author': author->{name, 'picture': image.asset->url, 'hash': image.asset->metadata.lqip},
-`;
-
 export async function getAllPosts() {
-  const posts = await client.fetch(`
-        *[_type == "post"] | order(publishedAt desc){
-            ${postFields}
-        }
-    `);
+  const posts = await client.fetch(allPostsQuery);
   return getUniquePosts(posts);
+}
+
+export async function getAllPostsSlugs() {
+  const slugs = await client.fetch<string[]>(allPostsSlugsQuery);
+  return slugs.map((slug) => ({ slug }));
+}
+
+export async function getPostAndMorePosts(slug: string | string[] | undefined) {
+  return await client.fetch(postAndMorePostsQuery, { slug });
 }

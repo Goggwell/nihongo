@@ -18,6 +18,7 @@ export interface IPost {
   slug: string;
   title: string;
   _id: string;
+  body: any;
 }
 
 export interface IPosts {
