@@ -35,7 +35,7 @@ export const postAndMorePostsQuery = groq`
             },
             ${postFields}
         },
-        "morePosts": *[_type == "post" && slug.current != $slug] | order(publishedAt desc, _updatedAt desc) [0...2] {
+        "morePosts": *[_type == "post" && slug.current != $slug] | order(publishedAt desc, _updatedAt desc) [0...3] {
             body,
             ${postFields}
         }
