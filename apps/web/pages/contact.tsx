@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import Link from "next/link";
+
 import { inter, basierSquare } from "@/fonts/fonts";
 
 import Navbar from "@/components/Navbar";
@@ -138,13 +140,19 @@ export default function Contact() {
               </ul>
               <ul className={styles.Contact__socials}>
                 <li>
-                  <YoutubeIcon />
+                  <Link href="https://youtube.com">
+                    <YoutubeIcon />
+                  </Link>
                 </li>
                 <li>
-                  <InstagramIcon />
+                  <Link href="https://youtube.com">
+                    <InstagramIcon />
+                  </Link>
                 </li>
                 <li>
-                  <FacebookIcon />
+                  <Link href="https://youtube.com">
+                    <FacebookIcon />
+                  </Link>
                 </li>
               </ul>
             </div>
