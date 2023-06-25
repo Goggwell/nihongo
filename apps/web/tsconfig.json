@@ -2,6 +2,7 @@
   "extends": "tsconfig/nextjs.json",
   "compilerOptions": {
     "target": "ESNext",
+    "baseUrl": "./",
     "paths": {
       "@/components/*": ["components/*"],
       "@/icons/*": ["components/Icons/*"],
@@ -11,6 +12,7 @@
       "@/lib/*": ["lib/*"]
     }
   },
+  "declaration": false,
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }
