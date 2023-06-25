@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { useNextSanityImage } from "next-sanity-image";
-import { SanityImageSource } from "@sanity/asset-utils";
+import { ResolvedSanityImage } from "@sanity/asset-utils";
 
 import { client } from "@/lib/client";
 
@@ -10,7 +10,7 @@ import styles from "./RichTextComponent.module.scss";
 
 export const RichTextComponent = {
   types: {
-    image: ({ value }: { value: SanityImageSource }) => {
+    image: ({ value }: { value: ResolvedSanityImage }) => {
       const imageProps = useNextSanityImage(client, value);
 
       return (
