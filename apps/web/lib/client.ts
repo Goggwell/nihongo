@@ -1,5 +1,5 @@
-import { SanityClient } from "@sanity/client";
 import { createClient } from "next-sanity";
 import { config } from "./config";
+import { SanityClient } from "next-sanity";
 
-export const sanityClient: SanityClient = createClient(config);
+export const client: SanityClient = createClient(config);

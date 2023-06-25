@@ -1,11 +1,111 @@
 .Button {
-  border-radius: 8px;
+  $button: &;
+
+  position: relative;
+  border-radius: $sp-1;
   background-color: rgba($cl-white, 0.1);
   color: $cl-white;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: $hg-btn;
+  line-height: $lh-btn;
   gap: $sp-2;
   font-size: $fs-btn;
+  font-weight: 600;
   padding: $pd-btn;
+  overflow: hidden;
+  transition: $t-ease;
+
+  * {
+    transition: $t-ease;
+  }
+
+  &__loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    z-index: 5;
+    opacity: 0;
+    pointer-events: none;
+    transition: $t-ease;
+
+    svg {
+      width: $fs-body;
+      fill: $cl-dark-1;
+      animation: spin 5s linear infinite;
+
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
+
+  &.is-loading {
+    *:not(svg, path) {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #{ $button }__loading {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
+  &.lg {
+    height: $hg-btn-lg;
+    font-size: $fs-btn-lg;
+    line-height: $lh-btn-lg;
+
+    &.is-round {
+      width: $hg-btn-lg;
+    }
+  }
+
+  &.sm {
+    height: $hg-btn-sm;
+
+    &.is-round {
+      width: $hg-btn-sm;
+    }
+  }
+
+  &.transparent {
+    background-color: transparent;
+    border: 1px solid rgba($cl-red, 0.5);
+  }
+
+  &.filled {
+    background-color: rgba($cl-red, 0.8);
+    border: none;
+  }
+
+  &.is-round {
+    border-radius: 50%;
+    width: $hg-btn;
+    padding: 0;
+  }
+
+  &:hover {
+    &.transparent {
+      background-color: rgba($cl-white, 0.1);
+      border-color: rgba($cl-red, 1);
+      box-shadow: $bs-default;
+    }
+
+    &.filled {
+      background-color: rgba($cl-red, 1);
+      box-shadow: $bs-default;
+    }
+  }
 }

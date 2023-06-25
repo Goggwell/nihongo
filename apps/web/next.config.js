@@ -8,4 +8,7 @@ module.exports = {
     includePaths: [path.join(__dirname), "styles"],
     prependData: `@import "variables.module.scss";`,
   },
+  images: {
+    domains: ["cdn.sanity.io"],
+  },
 };

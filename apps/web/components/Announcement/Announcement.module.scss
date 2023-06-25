@@ -1,0 +1,44 @@
+.Announcement {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: $sp-6;
+  background-color: $cl-red;
+  z-index: 11;
+
+  &.closed {
+    display: none;
+  }
+
+  span {
+    display: flex;
+    flex-direction: column;
+    gap: $sp-2;
+    color: $cl-white;
+    line-height: $lh-item;
+    font-size: $fs-logo;
+
+    b {
+      font-weight: 500;
+    }
+
+    i {
+      font-size: $fs-sm;
+      color: rgba($cl-white, 0.8);
+    }
+  }
+
+  &__close {
+    position: absolute !important;
+    top: 0;
+    right: 0;
+    margin: $sp-4;
+    border: none !important;
+    transform: scale(1.5);
+
+    svg path {
+      stroke: $cl-white;
+    }
+  }
+}

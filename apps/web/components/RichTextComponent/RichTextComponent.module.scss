@@ -1,0 +1,79 @@
+.RichText {
+  &__h1,
+  &__h2,
+  &__h3,
+  &__h4,
+  &__h5,
+  &__h6,
+  &__blockquote,
+  &__link,
+  &__ul,
+  &__ol,
+  &__img {
+    overflow-wrap: break-word;
+    line-height: $lh-post;
+
+    &:not(:last-child) {
+      margin-bottom: $sp-8-notch;
+    }
+  }
+
+  &__h1,
+  &__h2,
+  &__h3,
+  &__h4,
+  &__h5,
+  &__h6 {
+    font-weight: 600;
+    color: $cl-white;
+  }
+
+  &__h1,
+  &__h2 {
+    line-height: $lh-h2 !important;
+  }
+
+  &__h1 {
+    font-size: 28px;
+
+    @media screen and (min-width: $bp-md) {
+      font-size: $fs-h1-md;
+    }
+  }
+
+  &__h2 {
+    font-size: $fs-logo;
+  }
+
+  &__h3 {
+    line-height: 1.75rem;
+    font-size: $fs-tagline;
+  }
+
+  &__ul,
+  &__ol {
+    color: rgba($cl-white, 0.8);
+  }
+
+  &__link {
+    color: $cl-red;
+  }
+
+  &__ul,
+  &__ol {
+    margin-left: 26px;
+    margin-bottom: $sp-8-notch;
+  }
+
+  &__ul {
+    list-style-type: disc;
+  }
+
+  &__ol {
+    list-style-type: decimal;
+  }
+
+  li:not(:last-child) {
+    margin-bottom: 0.625rem;
+  }
+}

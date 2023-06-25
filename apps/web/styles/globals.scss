@@ -26,8 +26,55 @@ h3,
 h4,
 h5,
 h6,
-p {
+p,
+span,
+button,
+figcaption,
+form,
+textarea,
+input,
+li {
   line-height: normal;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-basier);
+  font-weight: 600;
+}
+
+p,
+span,
+button,
+figcaption,
+form,
+textarea,
+input,
+li {
+  font-family: var(--font-inter);
+}
+
+h1 {
+  font-size: $fs-h1-md;
+
+  @media screen and (min-width: $bp-md) {
+    font-size: $fs-h1;
+  }
+}
+
+h2 {
+  font-size: $fs-h2-md;
+  line-height: $lh-h2;
+
+  @media screen and (min-width: $bp-md) {
+    font-size: $fs-h2;
+  }
 }
 
 button {
@@ -40,6 +87,10 @@ button {
 ul,
 li {
   list-style: none;
+}
+
+figure {
+  margin: 0;
 }
 
 * {

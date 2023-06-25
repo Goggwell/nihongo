@@ -1,0 +1,41 @@
+.Snackbar {
+  position: fixed;
+  bottom: -$sp-xl;
+  left: 50%;
+  margin-bottom: $sp-4;
+  transform: translateX(-50%);
+  border-radius: 4px;
+  font-weight: 500;
+  color: $cl-white;
+  font-size: $fs-sm;
+  font-family: var(--font-inter);
+  line-height: $lh-item;
+  padding: $sp-6 $sp-8;
+  text-align: center;
+  z-index: 10;
+
+  &.is-error {
+    background-color: $cl-red;
+  }
+
+  &.is-success {
+    background-color: $cl-green;
+  }
+
+  &.is-visible {
+    bottom: 0;
+    transition: $t-ease;
+  }
+
+  &__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: $sp-1;
+    border-color: transparent !important;
+
+    svg path {
+      stroke: $cl-white;
+    }
+  }
+}

@@ -1,11 +1,14 @@
 {
   "extends": "tsconfig/nextjs.json",
   "compilerOptions": {
+    "target": "ESNext",
     "paths": {
       "@/components/*": ["components/*"],
       "@/icons/*": ["components/Icons/*"],
       "@/pages/*": ["pages/*"],
-      "@/styles/*": ["styles/*"]
+      "@/styles/*": ["styles/*"],
+      "@/fonts/*": ["fonts/*"],
+      "@/lib/*": ["lib/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
