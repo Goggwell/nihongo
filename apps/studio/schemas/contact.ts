@@ -6,9 +6,21 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'map',
+      title: 'Map',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    }),
+    defineField({
       name: 'address',
       title: 'Address',
-      type: 'string',
+      type: 'object',
+      fields: [
+        {name: 'addressname', type: 'string', title: 'Address Name'},
+        {name: 'addressurl', type: 'string', title: 'Address URL'},
+      ],
     }),
     defineField({
       name: 'phonenumber',

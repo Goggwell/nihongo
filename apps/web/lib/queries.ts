@@ -37,6 +37,7 @@ const aboutFields = groq`
 `;
 
 const contactFields = groq`
+    'map': {'picture': map.asset->url, 'hash': map.asset->metadata.lqip},
     address,
     phonenumber,
     email,
