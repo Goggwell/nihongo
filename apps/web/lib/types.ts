@@ -20,6 +20,12 @@ interface ICourseInfo {
   info3: string;
 }
 
+interface IContactSocials {
+  youtube: string;
+  instagram: string;
+  facebook: string;
+}
+
 export interface IPost {
   author: IAuthor;
   coverImage: ICoverImage;
@@ -62,4 +68,12 @@ export interface ICourses {
 export interface IAbout {
   url: string;
   body: any;
+}
+
+export interface IContact {
+  address: string;
+  phonenumber: string;
+  email: string;
+  hours: string;
+  socials: IContactSocials;
 }
