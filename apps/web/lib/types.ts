@@ -20,6 +20,16 @@ interface ICourseInfo {
   info3: string;
 }
 
+interface IContactMap {
+  picture: string;
+  hash: string;
+}
+
+interface IContactAddress {
+  addressname: string;
+  addressurl: string;
+}
+
 interface IContactSocials {
   youtube: string;
   instagram: string;
@@ -71,7 +81,8 @@ export interface IAbout {
 }
 
 export interface IContact {
-  address: string;
+  map: IContactMap;
+  address: IContactAddress;
   phonenumber: string;
   email: string;
   hours: string;

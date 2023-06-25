@@ -157,14 +157,38 @@
       gap: $sp-4;
 
       .map {
+        position: relative;
         width: 100%;
+        height: 300px;
       }
 
       .address {
-        font-size: $fs-sm;
-        line-height: $lh-snug;
-        color: rgba($cl-white, 0.8);
-        text-align: right;
+        display: flex;
+        align-items: center;
+        gap: $sp-4;
+
+        a {
+          &:hover {
+            svg path {
+              stroke: $cl-red;
+            }
+          }
+        }
+
+        svg {
+          width: $sp-6;
+        }
+
+        svg path {
+          stroke: rgba($cl-white, 0.8);
+          transition: $t-ease;
+        }
+
+        span {
+          font-size: $fs-sm;
+          line-height: $lh-snug;
+          color: rgba($cl-white, 0.8);
+        }
       }
     }
   }

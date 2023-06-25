@@ -1,24 +1,23 @@
-import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
+import Image from "next/image";
 
-const Map = () => {
-  const { isLoaded } = useJsApiLoader({
-    id: "google-map-script",
-    googleMapsApiKey: `${process.env.NEXT_PUBLIC_GOOGLE_API_KEY}`,
-  });
+import styles from "./Map.module.scss";
 
-  const center = {
-    lat: -6.13612,
-    lng: 106.72168,
-  };
+interface IMap {
+  url: string;
+  hash: string;
+}
 
-  return isLoaded ? (
-    <GoogleMap
-      mapContainerStyle={{ width: "100%", height: "300px" }}
-      zoom={17}
-      center={center}
-    />
-  ) : (
-    <></>
+const Map = ({ url, hash }: IMap) => {
+  return (
+    <picture className={styles.Map}>
+      <Image
+        src={url}
+        alt="Map"
+        fill={true}
+        placeholder="blur"
+        blurDataURL={hash}
+      />
+    </picture>
   );
 };
 

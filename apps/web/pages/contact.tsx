@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Link from "next/link";
 
@@ -13,6 +13,7 @@ import Button from "@/components/Button";
 import Snackbar from "@/components/Snackbar";
 import Map from "@/components/Map";
 
+import MapIcon from "@/icons/MapIcon";
 import YoutubeIcon from "@/icons/YoutubeIcon";
 import InstagramIcon from "@/icons/InstagramIcon";
 import FacebookIcon from "@/icons/FacebookIcon";
@@ -21,6 +22,7 @@ import clsx from "clsx";
 import styles from "@/styles/Contact.module.scss";
 
 export default function Contact({
+  map,
   address,
   phonenumber,
   email,
@@ -32,6 +34,10 @@ export default function Contact({
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
+
+  useEffect(() => {
+    console.log(map);
+  }, []);
 
   const validateForm = () => {
     return formName && formMessage;
@@ -129,9 +135,14 @@ export default function Contact({
             <div className={styles.Contact__info__container}>
               <figure className={styles.Contact__info__map}>
                 <div className={styles.map}>
-                  <Map />
+                  <Map url={map.picture} hash={map.hash} />
                 </div>
-                <figcaption className={styles.address}>{address}</figcaption>
+                <figcaption className={styles.address}>
+                  <Link href={address.addressurl}>
+                    <MapIcon />
+                  </Link>
+                  <span>{address.addressname}</span>
+                </figcaption>
               </figure>
               <ul className={styles.Contact__info}>
                 <li>
@@ -178,9 +189,11 @@ export default function Contact({
 }
 
 export async function getStaticProps() {
-  const { address, phonenumber, email, hours, socials } = await getContact();
+  const { map, address, phonenumber, email, hours, socials } =
+    await getContact();
   return {
     props: {
+      map,
       address,
       phonenumber,
       email,
