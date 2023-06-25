@@ -169,19 +169,19 @@
 
         a {
           &:hover {
-            svg path {
-              stroke: $cl-red;
+            svg {
+              transform: scale(1.2);
             }
           }
         }
 
         svg {
-          width: $sp-6;
+          width: $sp-4;
+          transition: $t-elastic;
         }
 
         svg path {
-          stroke: rgba($cl-white, 0.8);
-          transition: $t-ease;
+          stroke: transparent;
         }
 
         span {
