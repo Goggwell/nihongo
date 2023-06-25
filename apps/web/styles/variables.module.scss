@@ -39,12 +39,17 @@ $cs-section: 80rem;
 $cs-navbar: 80rem;
 $cs-footer: 80rem;
 
+// margins
+$m-course-block: 80px 116px;
+$m-course-block-sm: 80px;
+
 // font sizes
 $fs-navbar: 0.875rem;
 $fs-sm: 0.875rem;
 $fs-body: 1rem;
 $fs-tagline: 1.25rem;
 $fs-logo: 1.5rem;
+$fs-item-title: 1.75rem;
 $fs-more: 1.875rem;
 $fs-h1: 4rem;
 $fs-h1-contact: 3rem;
@@ -61,6 +66,9 @@ $lh-snug: 1.375;
 $lh-item: 1.25;
 $lh-excerpt: 1.5;
 $lh-post: 1.5;
+$lh-course-title: 80px;
+$lh-item-title: 1.5rem;
+$lh-item-description: 1.25rem;
 
 // box shadow
 $bs-default: 0 0 rgba(#000, 0), 0 0 rgba(#000, 0),

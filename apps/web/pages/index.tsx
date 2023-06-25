@@ -20,8 +20,6 @@ import AcademicIcon from "@/icons/AcademicIcon";
 
 import { IAnnouncement, IFullAuthor } from "@/lib/types";
 
-import moto from "../public/moto.webp";
-
 import clsx from "clsx";
 import styles from "@/styles/Home.module.scss";
 
@@ -35,10 +33,6 @@ export default function Home({
   const [isHeadingVisible, setIsHeadingVisible] = useState(true);
   const [scrollPos, setScrollPos] = useState(0);
   const [isNavbarChanged, setIsNavbarChanged] = useState(false);
-
-  useEffect(() => {
-    console.log(authors);
-  }, []);
 
   useEffect(() => {
     const onScroll = () => {

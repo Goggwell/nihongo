@@ -14,6 +14,12 @@ interface IAuthorImage {
   hash: string;
 }
 
+interface ICourseInfo {
+  info1: string;
+  info2: string;
+  info3: string;
+}
+
 export interface IPost {
   author: IAuthor;
   coverImage: ICoverImage;
@@ -40,4 +46,15 @@ export interface IFullAuthor {
   image: IAuthorImage;
   role: string;
   bio: string;
+}
+
+export interface ICourse {
+  title: string;
+  description: string;
+  rank: number;
+  info: ICourseInfo;
+}
+
+export interface ICourses {
+  courses: ICourse[];
 }

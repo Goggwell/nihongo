@@ -123,7 +123,7 @@
 
   &__posts {
     position: relative;
-    width: 100%;
+    width: $cs-full;
     display: grid;
     justify-content: center;
     gap: $sp-8;

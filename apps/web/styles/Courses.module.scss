@@ -1,2 +1,116 @@
 .Courses {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  background: $cl-white;
+  color: $cl-dark-1;
+
+  &__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $sp-8-1;
+    min-height: calc(100vh - 186.5px);
+    max-width: $cs-section;
+    margin: 0 auto;
+    padding: calc($sp-xl + $sp-8) $sp-8;
+
+    @media screen and (min-width: $bp-lg) {
+      gap: $sp-10;
+    }
+
+    @media screen and (min-width: $bp-2xl) {
+      padding: calc($sp-xl + $sp-8) 0;
+    }
+  }
+
+  &__title {
+    max-width: 800px;
+    text-align: center;
+    font-size: $fs-h1-contact;
+
+    @media screen and (min-width: $bp-md) {
+      font-size: $fs-h1;
+    }
+  }
+
+  &__stack {
+    position: relative;
+    width: $cs-full;
+    display: grid;
+    justify-content: center;
+    gap: $sp-6;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+
+    @media screen and (min-width: $bp-md) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media screen and (min-width: $bp-lg) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    &--item {
+      display: flex;
+      flex-direction: column;
+      gap: $sp-6;
+      border-radius: $sp-3;
+      padding: 20px;
+      border: 1px solid $cl-gray;
+      transition: $t-ease;
+
+      &:hover {
+        border-color: $cl-red;
+        background-color: $cl-red;
+        color: $cl-white;
+      }
+
+      @media screen and (min-width: $bp-sm-notch) {
+        padding: 30px;
+      }
+
+      @media screen and (min-width: $bp-md-notch) {
+        padding: 40px;
+      }
+
+      .heading,
+      .info {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .heading {
+        gap: $sp-4;
+
+        .title {
+          font-size: $fs-item-title;
+          font-weight: 600;
+          line-height: $lh-item-title;
+        }
+
+        .description {
+          font-size: $fs-sm;
+          line-height: $lh-item-description;
+          font-weight: 500;
+        }
+      }
+
+      .info {
+        gap: $sp-4;
+        font-size: $fs-sm;
+        font-weight: 500;
+
+        li {
+          display: flex;
+          gap: $sp-4;
+          align-items: stretch;
+
+          i {
+            font-style: normal;
+          }
+        }
+      }
+    }
+  }
 }

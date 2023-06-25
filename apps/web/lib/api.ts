@@ -5,6 +5,7 @@ import {
   postAndMorePostsQuery,
   announcementQuery,
   allAuthorsQuery,
+  allCoursesQuery,
 } from "./queries";
 
 const getUniquePosts = (posts: any) => {
@@ -41,4 +42,9 @@ export async function getAllAuthors() {
 export async function getAnnouncement() {
   const announcement = await client.fetch(announcementQuery);
   return announcement;
+}
+
+export async function getAllCourses() {
+  const courses = await client.fetch(allCoursesQuery);
+  return courses;
 }

@@ -59,36 +59,38 @@ export default function Post(props: PageProps) {
         <div className={styles.Post__content}>
           <PortableText value={post.body} components={RichTextComponent} />
         </div>
-        <div className={styles["Post__more--container"]}>
-          <h2 className={styles["Post__more--title"]}>Recently Updated</h2>
-          <ul className={styles.Post__more}>
-            {morePosts.map((post) => (
-              <li key={post.slug} className={styles.post}>
-                <Link href="/posts/[slug]" as={`/posts/${post.slug}`}>
-                  <div className={styles.post__body}>
-                    <picture className={styles.post__image}>
-                      <Image
-                        src={post.coverImage.picture}
-                        alt={post.title}
-                        fill={true}
-                        placeholder="blur"
-                        blurDataURL={post.coverImage.hash}
-                      />
-                    </picture>
-                    <div className={styles.post__title}>
-                      <h3>{post.title}</h3>
+        {morePosts && (
+          <div className={styles["Post__more--container"]}>
+            <h2 className={styles["Post__more--title"]}>Recently Updated</h2>
+            <ul className={styles.Post__more}>
+              {morePosts.map((post) => (
+                <li key={post.slug} className={styles.post}>
+                  <Link href="/posts/[slug]" as={`/posts/${post.slug}`}>
+                    <div className={styles.post__body}>
+                      <picture className={styles.post__image}>
+                        <Image
+                          src={post.coverImage.picture}
+                          alt={post.title}
+                          fill={true}
+                          placeholder="blur"
+                          blurDataURL={post.coverImage.hash}
+                        />
+                      </picture>
+                      <div className={styles.post__title}>
+                        <h3>{post.title}</h3>
+                      </div>
                     </div>
-                  </div>
-                  <div className={styles.post__footer}>
-                    <span>
-                      {post.author.name} · <Date date={post.date} />
-                    </span>
-                  </div>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+                    <div className={styles.post__footer}>
+                      <span>
+                        {post.author.name} · <Date date={post.date} />
+                      </span>
+                    </div>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
       <Footer />
     </div>
