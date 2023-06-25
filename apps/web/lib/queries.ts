@@ -31,6 +31,11 @@ const courseFields = groq`
     info,
 `;
 
+const aboutFields = groq`
+    url,
+    body,
+`;
+
 export const allPostsQuery = groq`
     *[_type == "post"] | order(publishedAt desc){
         ${postFields}
@@ -77,5 +82,11 @@ export const allAuthorsQuery = groq`
 export const allCoursesQuery = groq`
     *[_type == "course"] | order(rank asc) {
         ${courseFields}
+    }
+`;
+
+export const aboutQuery = groq`
+    *[_type == "about"][0] {
+        ${aboutFields}
     }
 `;

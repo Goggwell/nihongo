@@ -8,15 +8,17 @@ import styles from "./Navbar.module.scss";
 export interface INavbar {
   hidden?: Boolean;
   changed?: Boolean;
+  opaque?: Boolean;
 }
 
-const Navbar = ({ hidden = false, changed }: INavbar) => {
+const Navbar = ({ hidden = false, changed, opaque = false }: INavbar) => {
   return (
     <nav
       className={clsx(
         styles.Navbar,
         hidden && styles["is-hidden"],
-        changed && styles["is-changed"]
+        changed && styles["is-changed"],
+        opaque && styles["is-opaque"]
       )}
     >
       <div className={styles.Navbar__container}>

@@ -58,3 +58,8 @@ export interface ICourse {
 export interface ICourses {
   courses: ICourse[];
 }
+
+export interface IAbout {
+  url: string;
+  body: any;
+}

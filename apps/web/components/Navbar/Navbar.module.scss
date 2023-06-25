@@ -19,6 +19,10 @@
     backdrop-filter: blur(10px);
   }
 
+  &.is-opaque {
+    background-color: $cl-black !important;
+  }
+
   &__container {
     width: 100%;
     max-width: $cs-navbar;

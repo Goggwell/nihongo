@@ -1,5 +1,3 @@
-import Link from "next/link";
-import Image from "next/image";
 import { getAllCourses } from "@/lib/api";
 
 import { inter, basierSquare } from "@/fonts/fonts";
@@ -17,7 +15,7 @@ export default function Courses({ courses }: ICourses) {
     <div
       className={clsx(styles.Courses, inter.variable, basierSquare.variable)}
     >
-      <Navbar changed={true} />
+      <Navbar changed={true} opaque={true} />
       <div className={styles.Courses__container}>
         <h1 className={styles.Courses__title}>Perkenalan Kursus</h1>
         <div className={styles.Courses__stack}>

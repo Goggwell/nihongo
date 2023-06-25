@@ -10,6 +10,12 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       <DefaultSeo
         title="NihonGo"
         description="NihonGO! is a language school that aims to give you all the necessary skills to thrive in a Japanese environment."
+        additionalLinkTags={[
+          {
+            rel: "icon",
+            href: "/favicon.svg",
+          },
+        ]}
       />
       <Component {...pageProps} />
     </>
