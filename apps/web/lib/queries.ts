@@ -36,6 +36,14 @@ const aboutFields = groq`
     body,
 `;
 
+const contactFields = groq`
+    address,
+    phonenumber,
+    email,
+    hours,
+    socials
+`;
+
 export const allPostsQuery = groq`
     *[_type == "post"] | order(publishedAt desc){
         ${postFields}
@@ -88,5 +96,11 @@ export const allCoursesQuery = groq`
 export const aboutQuery = groq`
     *[_type == "about"][0] {
         ${aboutFields}
+    }
+`;
+
+export const contactQuery = groq`
+    *[_type == "contact"][0] {
+        ${contactFields}
     }
 `;

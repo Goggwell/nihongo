@@ -7,6 +7,7 @@ import {
   allAuthorsQuery,
   allCoursesQuery,
   aboutQuery,
+  contactQuery,
 } from "./queries";
 
 const getUniquePosts = (posts: any) => {
@@ -53,4 +54,9 @@ export async function getAllCourses() {
 export async function getAbout() {
   const about = await client.fetch(aboutQuery);
   return about;
+}
+
+export async function getContact() {
+  const contact = await client.fetch(contactQuery);
+  return contact;
 }

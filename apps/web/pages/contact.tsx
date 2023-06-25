@@ -2,6 +2,9 @@ import { useState } from "react";
 
 import Link from "next/link";
 
+import { getContact } from "@/lib/api";
+import { IContact } from "@/lib/types";
+
 import { inter, basierSquare } from "@/fonts/fonts";
 
 import Navbar from "@/components/Navbar";
@@ -17,7 +20,13 @@ import FacebookIcon from "@/icons/FacebookIcon";
 import clsx from "clsx";
 import styles from "@/styles/Contact.module.scss";
 
-export default function Contact() {
+export default function Contact({
+  address,
+  phonenumber,
+  email,
+  hours,
+  socials,
+}: IContact) {
   const [formName, setFormName] = useState("");
   const [formMessage, setFormMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -122,35 +131,35 @@ export default function Contact() {
                 <div className={styles.map}>
                   <Map />
                 </div>
-                <figcaption className={styles.address}>
-                  Jl. Taman Palem Lestari No.16, RT.5/RW.13, Cengkareng Bar.,
-                  Kecamatan Cengkareng, Kota Jakarta Barat
-                </figcaption>
+                <figcaption className={styles.address}>{address}</figcaption>
               </figure>
               <ul className={styles.Contact__info}>
                 <li>
-                  <b>Phone Number: </b>+62-626-262626
+                  <b>Phone Number: </b>
+                  {phonenumber}
                 </li>
                 <li>
-                  <b>Email Address: </b>thisis@anemail.com
+                  <b>Email Address: </b>
+                  {email}
                 </li>
                 <li>
-                  <b>Business Hours: </b>9am - 8pm
+                  <b>Business Hours: </b>
+                  {hours}
                 </li>
               </ul>
               <ul className={styles.Contact__socials}>
                 <li>
-                  <Link href="https://youtube.com">
+                  <Link href={socials.youtube}>
                     <YoutubeIcon />
                   </Link>
                 </li>
                 <li>
-                  <Link href="https://youtube.com">
+                  <Link href={socials.instagram}>
                     <InstagramIcon />
                   </Link>
                 </li>
                 <li>
-                  <Link href="https://youtube.com">
+                  <Link href={socials.facebook}>
                     <FacebookIcon />
                   </Link>
                 </li>
@@ -166,4 +175,18 @@ export default function Contact() {
       <Footer />
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const { address, phonenumber, email, hours, socials } = await getContact();
+  return {
+    props: {
+      address,
+      phonenumber,
+      email,
+      hours,
+      socials,
+    },
+    revalidate: 60,
+  };
 }
