@@ -11,6 +11,19 @@ const postFields = groq`
     'author': author->{name, 'picture': image.asset->url, 'hash': image.asset->metadata.lqip},
 `;
 
+const announcementFields = groq`
+    description,
+    caveat,
+`;
+
+const authorFields = groq`
+    name,
+    'slug': slug.current,
+    'image': {'picture': image.asset->url, 'hash': image.asset->metadata.lqip},
+    role,
+    bio,
+`;
+
 export const allPostsQuery = groq`
     *[_type == "post"] | order(publishedAt desc){
         ${postFields}
@@ -39,5 +52,17 @@ export const postAndMorePostsQuery = groq`
             body,
             ${postFields}
         }
+    }
+`;
+
+export const announcementQuery = groq`
+    *[_type == "announcement"][0] {
+        ${announcementFields}
+    }
+`;
+
+export const allAuthorsQuery = groq`
+    *[_type == "author"] | order(_updatedAt desc) {
+        ${authorFields}
     }
 `;

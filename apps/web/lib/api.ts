@@ -3,6 +3,8 @@ import {
   allPostsQuery,
   allPostsSlugsQuery,
   postAndMorePostsQuery,
+  announcementQuery,
+  allAuthorsQuery,
 } from "./queries";
 
 const getUniquePosts = (posts: any) => {
@@ -29,4 +31,14 @@ export async function getAllPostsSlugs() {
 
 export async function getPostAndMorePosts(slug: string | string[] | undefined) {
   return await client.fetch(postAndMorePostsQuery, { slug });
+}
+
+export async function getAllAuthors() {
+  const authors = await client.fetch(allAuthorsQuery);
+  return authors;
+}
+
+export async function getAnnouncement() {
+  const announcement = await client.fetch(announcementQuery);
+  return announcement;
 }

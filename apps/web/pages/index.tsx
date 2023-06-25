@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { inter, basierSquare } from "@/fonts/fonts";
 
 import Image from "next/image";
+import { getAnnouncement, getAllAuthors } from "@/lib/api";
 
 import Announcement from "@/components/Announcement";
 import Button from "@/components/Button";
@@ -17,15 +18,27 @@ import ChatIcon from "@/icons/ChatIcon";
 import ConnectionIcon from "@/icons/ConnectionIcon";
 import AcademicIcon from "@/icons/AcademicIcon";
 
+import { IAnnouncement, IFullAuthor } from "@/lib/types";
+
 import moto from "../public/moto.webp";
 
 import clsx from "clsx";
 import styles from "@/styles/Home.module.scss";
 
-export default function Home() {
+export default function Home({
+  announcement,
+  authors,
+}: {
+  announcement: IAnnouncement;
+  authors: IFullAuthor[];
+}) {
   const [isHeadingVisible, setIsHeadingVisible] = useState(true);
   const [scrollPos, setScrollPos] = useState(0);
   const [isNavbarChanged, setIsNavbarChanged] = useState(false);
+
+  useEffect(() => {
+    console.log(authors);
+  }, []);
 
   useEffect(() => {
     const onScroll = () => {
@@ -178,52 +191,47 @@ export default function Home() {
             Teacher / Staff Introduction
           </h2>
           <ul className={clsx(styles["Home__section--list"], styles.staff)}>
-            <li className={styles["Home__section--list__item"]}>
-              <picture className={styles.image}>
-                <Image
-                  src={moto}
-                  alt="Motohisa Katayama"
-                  fill={true}
-                  placeholder="blur"
-                  style={{ objectFit: "cover", objectPosition: "center" }}
-                />
-              </picture>
-              <b className={styles.name}>Denielsen Paulus</b>
-              <span className={styles.role}>Head of School</span>
-              <span className={styles.description}>
-                Setelah menempuh pembelajaran di Jepang selama 6 tahun, saya
-                merasa bahwa ada banyak miskonsepsi yang dikhawatirkan oleh
-                orang Indonesia yang ingin pergi belajar atau kerja ke Jepang
-                yang tidak benar. Oleh karena itu, saya mendirikan Nihon-Go!
-                untuk merubah pemikiran tersebut dimana kendala bahasa atau
-                apapun itu tidak menjadi halangan dan membantu kalian untuk
-                meraih mimpi kalian.
-              </span>
-            </li>
-            <li className={styles["Home__section--list__item"]}>
-              <picture className={styles.image}>
-                <Image
-                  src={moto}
-                  alt="Motohisa Katayama"
-                  fill={true}
-                  placeholder="blur"
-                  style={{ objectFit: "cover", objectPosition: "center" }}
-                />
-              </picture>
-              <b className={styles.name}>Motohisa Katayama</b>
-              <span className={styles.role}>Teacher</span>
-              <span className={styles.description}>
-                Saya adalah seseorang yang memiliki pengalaman tinggal di
-                Indonesia dan Jepang. Saya ingin memberikan dukungan bagi mereka
-                yang memiliki cita-cita untuk tinggal di Jepang, baik untuk
-                studi, bekerja, atau tujuan lainnya.
-              </span>
-            </li>
+            {authors?.length > 0 &&
+              authors.map((author) => (
+                <li
+                  className={styles["Home__section--list__item"]}
+                  key={author.slug}
+                >
+                  <picture className={styles.image}>
+                    <Image
+                      src={author.image.picture}
+                      alt={author.name}
+                      fill={true}
+                      placeholder="blur"
+                      blurDataURL={author.image.hash}
+                      style={{ objectFit: "cover", objectPosition: "center" }}
+                    />
+                  </picture>
+                  <b className={styles.name}>{author.name}</b>
+                  <span className={styles.role}>{author.role}</span>
+                  <span className={styles.description}>{author.bio}</span>
+                </li>
+              ))}
           </ul>
         </div>
       </section>
       <Footer />
-      <Announcement />
+      <Announcement
+        description={announcement?.description}
+        caveat={announcement?.caveat}
+      />
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const announcement = await getAnnouncement();
+  const authors = await getAllAuthors();
+  return {
+    props: {
+      announcement,
+      authors,
+    },
+    revalidate: 60,
+  };
 }

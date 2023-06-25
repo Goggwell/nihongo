@@ -9,6 +9,11 @@ interface IAuthor {
   hash: string;
 }
 
+interface IAuthorImage {
+  picture: string;
+  hash: string;
+}
+
 export interface IPost {
   author: IAuthor;
   coverImage: ICoverImage;
@@ -23,4 +28,16 @@ export interface IPost {
 
 export interface IPosts {
   posts: IPost[];
+}
+
+export interface IAnnouncement {
+  description?: string;
+  caveat?: string;
+}
+export interface IFullAuthor {
+  name: string;
+  slug: string;
+  image: IAuthorImage;
+  role: string;
+  bio: string;
 }
