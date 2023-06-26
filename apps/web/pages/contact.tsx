@@ -134,9 +134,9 @@ export default function Contact({
             </div>
             <div className={styles.Contact__info__container}>
               <figure className={styles.Contact__info__map}>
-                <div className={styles.map}>
+                <Link href={address.addressurl} className={styles.map}>
                   <Map url={map.picture} hash={map.hash} />
-                </div>
+                </Link>
                 <figcaption className={styles.address}>
                   <Link href={address.addressurl}>
                     <MapIcon />
