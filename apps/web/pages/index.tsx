@@ -88,7 +88,10 @@ export default function Home({
               !isHeadingVisible && styles["playable"]
             )}
           >
-            <source src="/bg.webm" type="video/webm" />
+            <source
+              src="https://res.cloudinary.com/dht1hywnn/video/upload/f_auto:video,q_auto:best/e5a1lnqipotywzxin7up"
+              type="video/webm"
+            />
           </video>
         </div>
         <div className={clsx(styles.Home__container, styles.heading)}>
