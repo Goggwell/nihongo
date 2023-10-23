@@ -13,7 +13,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         additionalLinkTags={[
           {
             rel: "icon",
-            href: "/favicon.svg",
+            href: "/favicon.ico",
           },
         ]}
       />
